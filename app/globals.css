@@ -7,6 +7,34 @@ body {
   background-color: var(--background);
 }
 
+.boxShadow {
+  box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes drawIn {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawOut {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: var(--stroke-length);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @layer base {
   :root {
     --primary-background: #fff;

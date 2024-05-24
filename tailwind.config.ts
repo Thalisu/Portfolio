@@ -15,6 +15,24 @@ const config: Config = {
         primary: "var(--primary-color)",
       },
     },
+    keyframes: {
+      drawIn: {
+        to: {
+          "stroke-dashoffset": "0",
+        },
+      },
+      drawOut: {
+        "0%": {
+          "stroke-dashoffset": "0",
+        },
+        "100%": {
+          "stroke-dashoffset": "-282",
+        },
+      },
+    },
+    animation: {
+      draw: "drawIn 1s ease-out forwards",
+    },
   },
   plugins: [],
 };

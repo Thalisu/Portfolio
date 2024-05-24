@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { inter } from "./ui/fonts";
-
-
 export const metadata: Metadata = {
   title: "Thalison de melo",
   description: "thalison's portfolio",
@@ -16,9 +13,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={inter.className}>
+      <body
+        className={` w-svw h-fit flex flex-col items-center`}
+      >
         {children}
-        </body>
+      </body>
     </html>
   );
 }
