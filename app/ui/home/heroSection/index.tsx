@@ -1,4 +1,3 @@
-import Switch from "@/app/ui/home/heroSection/switch";
 import MiddleText from "./MiddleText";
 import TopText from "./TopText";
 import BottomText from "./BottomText";
@@ -10,7 +9,6 @@ export default function HeroSection() {
         <TopText />
         <MiddleText />
         <BottomText />
-        <Switch />
       </div>
     </div>
   );

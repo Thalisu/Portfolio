@@ -21,6 +21,7 @@ const useHeroBottomTextAnimation = () => {
     tl.from(newSplitTitle.chars, {
       y: 150,
       stagger: 0.015,
+      delay: 0.4,
     })
       .to(
         github,
