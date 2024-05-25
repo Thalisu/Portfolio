@@ -1,10 +1,9 @@
 "use client";
-import useSquareRollAnimation from "@/app/hooks/useToggleTitle";
+import useHeroMiddleTextAnimation from "@/app/hooks/animations/useHeroMiddleTextAnimation";
 import { poppins } from "@/app/ui/fonts";
-import { useEffect } from "react";
 
 export default function MiddleText() {
-  const { ref, changeTitle } = useSquareRollAnimation();
+  const { ref } = useHeroMiddleTextAnimation();
 
   return (
     <div ref={ref}>
@@ -14,7 +13,7 @@ export default function MiddleText() {
         frontend
       </h2>
       <h2
-        className={`${poppins.className} text-8xl font-bold uppercase text-gray-700 w-max text-primary leading-[0] opacity-0`}
+        className={`${poppins.className} text-8xl font-bold uppercase text-gray-700 w-max text-primary leading-[0] opacity-0 `}
       >
         backend
       </h2>

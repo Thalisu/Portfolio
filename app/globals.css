@@ -11,9 +11,17 @@ body {
   box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
+.clip {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
 @keyframes drawIn {
-  to {
+  0% {
+    stroke-opacity: 1;
+  }
+  100% {
     stroke-dashoffset: 0;
+    stroke-opacity: 1;
   }
 }
 
