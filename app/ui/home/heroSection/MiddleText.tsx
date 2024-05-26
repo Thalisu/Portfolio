@@ -1,17 +1,14 @@
-"use client";
-import useHeroMiddleTextAnimation from "@/app/hooks/animations/useHeroMiddleTextAnimation";
 import { poppins } from "@/app/ui/fonts";
+import { forwardRef } from "react";
 
-export default function MiddleText() {
-  const ref = useHeroMiddleTextAnimation();
-
+export default forwardRef<HTMLDivElement>(function MiddleText(props, ref) {
   return (
-    <div ref={ref}>
+    <div ref={ref} className="opacity-0">
       <h2
-        className={`${poppins.className} text-8xl font-bold uppercase text-gray-700 w-max text-primary leading-[0] opacity-0`}
+        className={`${poppins.className} text-8xl font-bold uppercase text-gray-700 w-max text-primary leading-[0] `}
       >
         fullstack
       </h2>
     </div>
   );
-}
+});

@@ -1,10 +1,8 @@
-"use client";
-import useHeroBottomTextAnimation from "@/app/hooks/animations/useHeroBottomTextAnimation";
+import { forwardRef } from "react";
 import { poppins } from "../../fonts";
 import { GithubLogo, LinkedinLogo } from "@/app/components/svgs";
 
-export default function BottomText() {
-  const ref = useHeroBottomTextAnimation();
+export default forwardRef<HTMLDivElement>(function BottomText(props, ref) {
   return (
     <div
       className="w-full h-fit flex gap-2 items-center relative opacity-0 clip mt-3"
@@ -17,18 +15,18 @@ export default function BottomText() {
       </h2>
       <a
         href="https://github.com/Thalisu"
-        className="ml-1 translate-y-7 opacity-0"
+        className="ml-1 translate-y-7 opacity-0 svg"
         target="_blank"
       >
         <GithubLogo className="w-5 text-primary" />
       </a>
       <a
         href="https://www.linkedin.com/in/thalison-de-melo-correa-744958276/"
-        className="translate-y-7 opacity-0"
+        className="translate-y-7 opacity-0 svg"
         target="_blank"
       >
         <LinkedinLogo className="w-5 text-primary" />
       </a>
     </div>
   );
-}
+});

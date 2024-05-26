@@ -1,9 +1,7 @@
-"use client";
-import useHeroTopTextAnimation from "@/app/hooks/animations/useHeroTopTextAnimation";
+import { forwardRef } from "react";
 import { poppins } from "../../fonts";
 
-export default function TopText() {
-  const ref = useHeroTopTextAnimation();
+export default forwardRef<HTMLDivElement>(function TopText(props, ref) {
   return (
     <div
       className={`${poppins.className} flex uppercase w-max clip opacity-0 items-center`}
@@ -24,4 +22,4 @@ export default function TopText() {
       </p>
     </div>
   );
-}
+});
