@@ -8,7 +8,7 @@ export default forwardRef<HTMLDivElement>(function TopText(props, ref) {
       ref={ref}
     >
       <p className="font-bold text-2xl w-max text-primary leading-[22px] ">
-        {`oi`}&nbsp;
+        {`oi!`}&nbsp;
       </p>
       <p className="font-bold text-2xl w-max text-primary">👋</p>
       <p className="font-bold text-2xl w-max text-primary leading-[22px] ">

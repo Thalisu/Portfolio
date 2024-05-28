@@ -45,12 +45,7 @@ body {
 
 @layer base {
   :root {
-    --primary-background: #fff;
+    --primary-background: #e8e8e3;
     --primary-color: #333333;
-  }
-
-  [spotlight="off"] {
-    --primary-background: #333333;
-    --primary-color: #fff;
   }
 }
