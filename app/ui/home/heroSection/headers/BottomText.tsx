@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { poppins } from "../../fonts";
+import { poppins } from "../../../fonts";
 import { GithubLogo, LinkedinLogo } from "@/app/components/svgs";
 
 export default forwardRef<HTMLDivElement>(function BottomText(props, ref) {

@@ -1,3 +1,7 @@
+import SplitTextJS from "split-text-js";
+
+import { SplitedElement } from "@/app/lib/types";
+
 export const setSvgAnimation = (
   path: Element,
   animation: string,
@@ -15,4 +19,17 @@ export const setSvgAnimation = (
   } else {
     console.log("not a SVGPathElement");
   }
+};
+
+export const getSplitText = (nodes: ChildNode[]) => {
+  let splitTitles: Node[] = [];
+  nodes.map((node, i) => {
+    if (node.textContent === "👋" || node.textContent === "") {
+      splitTitles.push(node);
+      return;
+    }
+    const newSplitTitle: SplitedElement = new SplitTextJS(node);
+    splitTitles.push(...Array.from(newSplitTitle.chars));
+  });
+  return splitTitles;
 };
