@@ -1,9 +1,9 @@
 import { poppins } from "@/app/ui/fonts";
 import { forwardRef } from "react";
 
-export default forwardRef<HTMLDivElement>(function MiddleText(props, ref) {
+export default function MiddleText() {
   return (
-    <div ref={ref} className="opacity-0">
+    <div id="middleText" className="">
       <h2
         className={`${poppins.className} text-8xl font-bold uppercase text-gray-700 w-max text-primary leading-[0] `}
       >
@@ -11,4 +11,4 @@ export default forwardRef<HTMLDivElement>(function MiddleText(props, ref) {
       </h2>
     </div>
   );
-});
+}

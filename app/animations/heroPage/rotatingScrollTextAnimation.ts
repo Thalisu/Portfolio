@@ -1,4 +1,8 @@
-export const arrowAnimation = (tl: gsap.core.Timeline, arrowC: Node) => {
+export const arrowAnimation = (
+  tl: gsap.core.Timeline,
+  arrowC: Node,
+  delayToStart: number
+) => {
   const arrows = Array.from(arrowC.childNodes);
 
   const duration = 1;
@@ -26,7 +30,7 @@ export const arrowAnimation = (tl: gsap.core.Timeline, arrowC: Node) => {
         repeatDelay: repeatDelay,
       },
     },
-    0
+    delayToStart
   ).to(
     arrows,
     {
@@ -44,7 +48,11 @@ export const arrowAnimation = (tl: gsap.core.Timeline, arrowC: Node) => {
   );
 };
 
-export const rotatingTextAnimation = (tl: gsap.core.Timeline, text: Node) => {
+export const rotatingTextAnimation = (
+  tl: gsap.core.Timeline,
+  text: Node,
+  delayToStart: number
+) => {
   const toOpacity1 = 50;
   const durationTotal = 7;
   const durationToOpacity1 = (toOpacity1 * durationTotal) / 360;
@@ -62,7 +70,7 @@ export const rotatingTextAnimation = (tl: gsap.core.Timeline, text: Node) => {
       duration: durationToOpacity1,
       ease: "none",
     },
-    0
+    delayToStart
   )
     .to(text, {
       rotateZ: 360,

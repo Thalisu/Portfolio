@@ -3,11 +3,13 @@ export const topTextAnimation = (tl: gsap.core.Timeline, topText: Node[]) => {
     topText,
     {
       y: -150,
+      opacity: 0,
     },
     {
       y: 0,
       stagger: 0.015,
       duration: 0.5,
+      opacity: 1,
     }
   );
 };
