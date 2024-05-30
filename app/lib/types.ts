@@ -5,3 +5,16 @@ export interface SplitedElement {
   splited: HTMLElement;
   words: NodeList;
 }
+
+export interface SkillSection {
+  label: string;
+  description: string;
+  bulletPoints: string[];
+  z: number;
+}
+
+export interface RelativeToSelfContainer {
+  children: React.ReactNode;
+  additionalPx: number;
+  classNames: string;
+}

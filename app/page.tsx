@@ -1,13 +1,15 @@
-import HeroSection from "./ui/home/heroSection";
-import Projects from "./ui/home/Projects";
 import SmoothScroll from "./components/SmoothScroll";
+import HeroSection from "./ui/home/heroSection";
+import AboutMyWork from "./ui/home/aboutMyWork";
+import Works from "./ui/home/works";
 
 export default function Home() {
   return (
     <SmoothScroll>
       <main>
         <HeroSection />
-        <Projects />
+        <AboutMyWork />
+        <Works />
       </main>
     </SmoothScroll>
   );

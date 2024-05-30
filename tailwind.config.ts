@@ -14,7 +14,11 @@ const config: Config = {
       },
       colors: {
         primary: "var(--primary-color)",
+        secondary: "var(--secondary-color)",
       },
+      borderColor: {
+        spacing: "var(--spacing-border-color)",
+      }
     },
     keyframes: {
       drawIn: {

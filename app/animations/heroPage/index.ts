@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 
 import { getSplitText } from "@/app/lib/utils";
 
@@ -30,7 +30,6 @@ const useHeroPageAnimations = () => {
 
       const rotatingContainer = container.current?.childNodes[1] as ChildNode;
       const rotatingScrollNodes = Array.from(rotatingContainer.childNodes);
-      console.log(rotatingContainer.childNodes);
 
       const splitTopText = getSplitText(topNodes);
       const splitMiddleText = getSplitText(middleNodes);
@@ -46,28 +45,31 @@ const useHeroPageAnimations = () => {
       textContainer.classList.remove("opacity-0");
       ttl.play();
 
-      const rtl = gsap.timeline();
+      const rtl = gsap.timeline({ paused: true });
 
       const delayToStart = 1.2;
       arrowAnimation(rtl, rotatingScrollNodes[0], delayToStart);
       rotatingTextAnimation(rtl, rotatingScrollNodes[1], delayToStart);
-
-      window.addEventListener("scroll", () => {
-        if (window.scrollY === 0) {
-          rtl.play();
-        }
-      });
+      rtl.play();
 
       gsap.registerPlugin(ScrollTrigger);
 
       const stl = gsap.timeline({
         scrollTrigger: {
           trigger: document.documentElement,
-          start: "top",
+          start: "10px",
           end: "+=400px",
           scrub: true,
+          onToggle: (self) => {
+            if (self.progress === 0) {
+              rtl.resume();
+            }
+          },
           onEnter: () => {
             rtl.pause();
+          },
+          onLeave: () => {
+            rtl.restart().pause();
           },
         },
       });
@@ -75,7 +77,7 @@ const useHeroPageAnimations = () => {
       stl.to(container.current, {
         y: -180,
         opacity: 0,
-        rotateX: -15,
+        rotateX: -25,
       });
     },
     { scope: container }
