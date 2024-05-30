@@ -2,8 +2,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
-import Vivus from "vivus";
 import { getSplitText } from "@/app/lib/utils";
+import Vivus from "vivus";
 
 const useObjectiveAnimation = () => {
   const ref = useRef<HTMLDivElement | null>(null);

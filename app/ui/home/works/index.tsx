@@ -1,13 +1,10 @@
-import { poppins } from "../../fonts";
+import Header from "./header";
 
 export default function Works() {
   return (
     <div className="w-full h-svh flex flex-col items-center gap-28 bg-primary pt-[5%]">
-      <h2
-        className={`${poppins.className} text-secondary uppercase font-bold text-5xl clip`}
-      >
-        Meus Projetos
-      </h2>
+      <Header />
+      <ul></ul>
     </div>
   );
 }
