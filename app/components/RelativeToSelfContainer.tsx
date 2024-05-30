@@ -19,16 +19,47 @@ export default function RelativeToSelfContainer(props: PropType) {
       gsap.registerPlugin(ScrollTrigger);
       const container = ref.current as HTMLDivElement;
 
-
-      gsap.to(container, {
+      gsap.from(container, {
         scrollTrigger: {
           trigger: container,
           start: "20px bottom",
           end: "top 10%",
           scrub: true,
         },
-        borderTopLeftRadius: "0%",
-        borderTopRightRadius: "0%",
+        scale: 0.8,
+        rotateZ: 10,
+      });
+
+      gsap.to(container, {
+        scrollTrigger: {
+          trigger: container,
+          start: "bottom 30%",
+          end: "bottom ",
+          scrub: true,
+        },
+        boxShadow: "0px 17px 55px 0px rgba(3,3,2,0)",
+      });
+
+      gsap.to("#container", {
+        scrollTrigger: {
+          trigger: container,
+          start: "bottom-=100px center",
+          end: "bottom-=100px 30%",
+          scrub: true,
+        },
+        y: -260,
+        opacity: 0,
+      });
+
+      gsap.to(container, {
+        scrollTrigger: {
+          trigger: container,
+          start: "bottom 70%",
+          end: "bottom ",
+          scrub: true,
+        },
+        borderBottomLeftRadius: "0% 0%",
+        borderBottomRightRadius: "0% 0%",
       });
     },
     { scope: ref }

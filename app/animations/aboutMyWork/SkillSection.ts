@@ -22,8 +22,8 @@ const useSkillSectionAnimation = (z: number) => {
       });
 
       tl.from(container, {
-        x: z % 2 === 0 ? 200 : -200,
-        y: 100,
+        x: z % 2 === 0 ? 150 : -150,
+        y: 50,
       });
     },
     { scope: ref }

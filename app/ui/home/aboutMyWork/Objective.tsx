@@ -11,12 +11,12 @@ export default function Objective() {
       className="w-full h-72 flex flex-col gap-8 sticky top-[100px] z-0"
       ref={container}
     >
-      <h3
+      <h2
         className={`${poppins.className} text-secondary uppercase font-bold text-5xl clip`}
         id="h3"
       >
         O que eu posso fazer
-      </h3>
+      </h2>
       <p className={`${inter.className} text-lg max-w-xl w-full`} id="p">
         Meu principal objetivo é entregar uma&nbsp;
         <span className="text-secondary underline">

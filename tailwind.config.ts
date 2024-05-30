@@ -18,7 +18,10 @@ const config: Config = {
       },
       borderColor: {
         spacing: "var(--spacing-border-color)",
-      }
+      },
+      borderRadius: {
+        "bottom-rounded": "0% 0% 50% 50% / 93% 93% 7% 7%",
+      },
     },
     keyframes: {
       drawIn: {
