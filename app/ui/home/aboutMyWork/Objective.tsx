@@ -12,7 +12,7 @@ export default function Objective() {
       ref={container}
     >
       <h3
-        className={`${poppins.className} text-secondary uppercase font-bold text-5xl`}
+        className={`${poppins.className} text-secondary uppercase font-bold text-5xl clip`}
         id="h3"
       >
         O que eu posso fazer
@@ -31,7 +31,7 @@ export default function Objective() {
       </p>
       <Dev
         className="absolute top-0 bottom-7 right-10 mt-auto mb-auto w-28"
-        id="svg"
+        id="devSvg"
       />
     </div>
   );

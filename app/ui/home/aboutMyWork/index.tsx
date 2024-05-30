@@ -7,7 +7,7 @@ import RelativeToSelfContainer from "@/app/components/RelativeToSelfContainer";
 export default function Projects() {
   const containerProps = {
     classNames: "w-full flex flex-col items-center gap-28 bg-secondary pt-[5%]",
-    additionalPx: 100,
+    additionalPx: 200,
   };
   return (
     <RelativeToSelfContainer {...containerProps}>

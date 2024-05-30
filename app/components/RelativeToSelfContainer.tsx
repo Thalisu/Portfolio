@@ -16,8 +16,9 @@ export default function RelativeToSelfContainer(props: PropType) {
 
   useGSAP(
     () => {
-      const container = ref.current as HTMLDivElement;
       gsap.registerPlugin(ScrollTrigger);
+      const container = ref.current as HTMLDivElement;
+
 
       gsap.to(container, {
         scrollTrigger: {
@@ -36,7 +37,7 @@ export default function RelativeToSelfContainer(props: PropType) {
   return (
     <div
       ref={ref}
-      className={`${props.classNames} rounded-t-[10%]`}
+      className={`${props.classNames} rounded-t-[2rem]`}
       style={{ height: heigth }}
     >
       {props.children}

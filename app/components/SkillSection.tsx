@@ -1,7 +1,11 @@
+"use client";
 import { inter, poppins } from "../ui/fonts";
 import { SkillSection as PropTypes } from "../lib/types";
+import useSkillSectionAnimation from "../animations/aboutMyWork/SkillSection";
 
 export default function SkillSection(props: PropTypes) {
+  const container = useSkillSectionAnimation(props.z);
+
   const style = {
     top: 163 + props.z * 70,
     zIndex: props.z,
@@ -11,6 +15,7 @@ export default function SkillSection(props: PropTypes) {
     <div
       className={`border-t-[1px] border-spacing flex flex-col gap-3 py-4 bg-secondary sticky`}
       style={style}
+      ref={container}
     >
       <h3 className={`${poppins.className} font-bold text-4xl`}>
         {props.label}
