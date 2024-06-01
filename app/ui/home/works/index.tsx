@@ -1,10 +1,11 @@
-import Header from "./header";
+import Header from "./Header";
+import Projects from "./projects";
 
 export default function Works() {
   return (
-    <div className="w-full h-svh flex flex-col items-center gap-28 bg-primary pt-[5%]">
-      <Header />
-      <ul></ul>
+    <div className="w-full h-svh bg-secondary flex flex-col items-center gap-5">
+        <Header />
+        <Projects />
     </div>
   );
 }

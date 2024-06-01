@@ -58,8 +58,6 @@ export default function RelativeToSelfContainer(props: PropType) {
           end: "bottom ",
           scrub: true,
         },
-        borderBottomLeftRadius: "0% 0%",
-        borderBottomRightRadius: "0% 0%",
       });
     },
     { scope: ref }

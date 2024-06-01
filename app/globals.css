@@ -17,6 +17,13 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
+.maskbg {
+  -webkit-mask: url("#circleMask") no-repeat center;
+  mask: url("#circleMask") no-repeat center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
 @keyframes drawIn {
   0% {
     stroke-opacity: 1;
@@ -49,6 +56,7 @@ body {
   :root {
     --primary-background: #e8e8e3;
     --secondary-background: #030302;
+    --terciary-background: #141414;
     --primary-color: #333333;
     --secondary-color: #d1d1c7;
     --spacing-border-color: #393632;

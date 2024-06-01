@@ -1,0 +1,11 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <filter id="displacementFilter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="noise"></feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="50" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+      </filter>
+      <mask id="circleMask">
+        <circle cx="50%" cy="50%" r="462" fill="white" class="mask" style="filter: url(#displacementFilter)"></circle>
+      </mask>
+    </defs>
+</svg>

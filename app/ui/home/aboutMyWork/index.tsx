@@ -3,10 +3,10 @@ import SkillSection from "@/app/components/SkillSection";
 import skills from "./skills";
 import RelativeToSelfContainer from "@/app/components/RelativeToSelfContainer";
 
-export default function Projects() {
+export default function AboutMyWork() {
   const containerProps = {
     classNames:
-      "w-full flex flex-col items-center gap-28 bg-secondary pt-[5%] boxShadow rounded-bottom-rounded",
+      "w-full flex flex-col items-center gap-28 bg-secondary pt-[5%] boxShadow",
     additionalPx: 200,
   };
   return (

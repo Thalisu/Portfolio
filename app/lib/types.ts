@@ -18,3 +18,9 @@ export interface RelativeToSelfContainer {
   additionalPx: number;
   classNames: string;
 }
+
+export interface ProjectsButtonFilter {
+  text: string;
+  i: number;
+  buttonAnimation: gsap.core.Tween[] | undefined;
+}
