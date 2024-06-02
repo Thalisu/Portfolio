@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export type SVGType = HTMLElement & SVGElement;
 export interface SplitedElement {
   chars: NodeList;

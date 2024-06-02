@@ -7,13 +7,8 @@ export default function Buttons() {
   return (
     <div className="flex gap-20 justify-center" ref={ref}>
       <ProjectsButtonFilter
-        text={"Principais"}
+        text={"Ver mais"}
         i={0}
-        buttonAnimation={buttonAnimation}
-      />
-      <ProjectsButtonFilter
-        text={"Todos"}
-        i={1}
         buttonAnimation={buttonAnimation}
       />
     </div>

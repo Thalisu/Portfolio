@@ -40,7 +40,7 @@ const useHeroPageAnimations = () => {
       topTextAnimation(ttl, splitTopText);
       middleTextAnimation(ttl, splitMiddleText);
       bottomTextAnimation(ttl, splitBottomText);
-      emojiAnimation(ttl, splitTopText[3]);
+      emojiAnimation(ttl, splitTopText[4]);
 
       textContainer.classList.remove("opacity-0");
       ttl.play();

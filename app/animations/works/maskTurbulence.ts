@@ -7,6 +7,8 @@ const useMaskTurbulenceAnimation = () => {
   const ref = useRef<HTMLDivElement | null>(null);
   useGSAP(
     () => {
+      if (!ref.current) return;
+      const container = ref.current;
       gsap.registerPlugin(ScrollTrigger);
 
       gsap.from(".mask", {
@@ -15,6 +17,11 @@ const useMaskTurbulenceAnimation = () => {
           start: "center-=100 center+=100",
           end: "center-=100 center-=100",
           scrub: true,
+          onUpdate: (self) => {
+            self.progress >= 0.7
+              ? (container.style.pointerEvents = "auto")
+              : (container.style.pointerEvents = "none");
+          },
         },
         r: 0,
       });
