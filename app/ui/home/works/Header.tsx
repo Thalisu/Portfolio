@@ -6,7 +6,7 @@ export default function Header() {
   const header = useWorksHeaderAnimation();
   return (
     <h2
-      className={`${poppins.className} text-secondary uppercase font-bold text-5xl clip`}
+      className={`${poppins.className} clip text-5xl font-bold uppercase text-secondary`}
       ref={header}
     >
       Meus Projetos

@@ -10,7 +10,7 @@ export default function Projects() {
 
   return (
     <div
-      className="flex flex-col w-svw max-w-screen-md gap-6 bg-primary border-transparent rounded-lg p-6 relative z-30 maskbg pointer-events-none"
+      className="maskbg pointer-events-none relative z-30 flex w-svw max-w-screen-md flex-col gap-6 rounded-lg border-transparent bg-primary p-6"
       ref={ref}
     >
       <MaskEffect />

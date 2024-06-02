@@ -20,17 +20,17 @@ export default function BottomText() {
   };
   return (
     <div
-      className="w-full h-fit flex gap-2 items-center relative  clip mt-3"
+      className="clip relative mt-3 flex h-fit w-full items-center gap-2"
       id="bottomText"
     >
       <h2
-        className={`${poppins.className} text-5xl font-bold uppercase w-max text-primary leading-[35px]`}
+        className={`${poppins.className} w-max text-5xl font-bold uppercase leading-[35px] text-primary`}
       >
         developer
       </h2>
       <a
         href="https://github.com/Thalisu"
-        className="ml-1 translate-y-7 svg cursor-none"
+        className="svg ml-1 translate-y-7 cursor-none"
         target="_blank"
         ref={github}
         onMouseEnter={() => handleMouseEnter(github.current)}
@@ -40,7 +40,7 @@ export default function BottomText() {
       </a>
       <a
         href="https://www.linkedin.com/in/thalison-de-melo-correa-744958276/"
-        className="translate-y-7 svg cursor-none"
+        className="svg translate-y-7 cursor-none"
         target="_blank"
         ref={linkedin}
         onMouseEnter={() => handleMouseEnter(linkedin.current)}

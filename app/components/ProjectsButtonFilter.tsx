@@ -21,16 +21,16 @@ export default function ProjectsButtonFilter(props: PropTypes) {
 
   return (
     <button
-      className="py-2 px-4 rounded border border-primary relative overflow-clip w-1/5 h-10 bg-primary"
+      className="relative h-10 w-1/5 overflow-clip rounded border border-primary bg-primary px-4 py-2"
       onMouseEnter={() => handleMouseEnter(props.i)}
       onMouseLeave={() => handleMouseLeave(props.i)}
     >
       <div
-        className="absolute right-0 left-0 h-full bg-secondary -bottom-10"
+        className="absolute -bottom-10 left-0 right-0 h-full bg-secondary"
         id={`buttonCover${props.i}`}
       ></div>
       <span
-        className={`${poppins.className} font-semibold absolute top-0 bottom-0 right-0 left-0 z-10 flex items-center justify-center text-secondary mix-blend-difference`}
+        className={`${poppins.className} absolute bottom-0 left-0 right-0 top-0 z-10 flex items-center justify-center font-semibold text-secondary mix-blend-difference`}
         id={`buttonText${props.i}`}
       >
         {props.text}

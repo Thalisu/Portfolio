@@ -11,20 +11,20 @@ export default function HeroSection() {
 
   return (
     <div
-      className="flex flex-col w-svw h-svh items-center justify-center relative"
+      className="relative flex h-svh w-svw flex-col items-center justify-center"
       ref={ref}
     >
-      <div className="w-fit h-fit flex flex-col gap-12 relative opacity-0">
+      <div className="relative flex h-fit w-fit flex-col gap-12 opacity-0">
         <TopText />
         <MiddleText />
         <BottomText />
       </div>
-      <div className="absolute bottom-0 right-0 left-0 h-1/6">
+      <div className="absolute bottom-0 left-0 right-0 h-1/6">
         <div>
-          <ArrowDown className="w-3 min-h-3 flex absolute top-0 bottom-0 right-0 left-0 m-auto text-primary opacity-0" />
-          <ArrowDown className="w-3 min-h-3 absolute top-0 bottom-0 right-0 left-0 m-auto text-primary opacity-0" />
+          <ArrowDown className="absolute bottom-0 left-0 right-0 top-0 m-auto flex min-h-3 w-3 text-primary opacity-0" />
+          <ArrowDown className="absolute bottom-0 left-0 right-0 top-0 m-auto min-h-3 w-3 text-primary opacity-0" />
         </div>
-        <CircularScrollTexts className="w-32 absolute top-0 bottom-0 right-0 left-0 m-auto text-primary opacity-0" />
+        <CircularScrollTexts className="absolute bottom-0 left-0 right-0 top-0 m-auto w-32 text-primary opacity-0" />
       </div>
     </div>
   );

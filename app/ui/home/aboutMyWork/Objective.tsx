@@ -8,16 +8,16 @@ export default function Objective() {
 
   return (
     <div
-      className="w-full h-72 flex flex-col gap-8 sticky top-[100px] z-0"
+      className="sticky top-[100px] z-0 flex h-72 w-full flex-col gap-8"
       ref={container}
     >
       <h2
-        className={`${poppins.className} text-secondary uppercase font-bold text-5xl clip`}
+        className={`${poppins.className} clip text-5xl font-bold uppercase text-secondary`}
         id="h3"
       >
         O que eu posso fazer
       </h2>
-      <p className={`${inter.className} text-lg max-w-xl w-full`} id="p">
+      <p className={`${inter.className} w-full max-w-xl text-lg`} id="p">
         Meu principal objetivo é entregar uma&nbsp;
         <span className="text-secondary underline">
           experiencia excepcional
@@ -30,7 +30,7 @@ export default function Objective() {
         <span className="text-secondary underline">destaque</span>.
       </p>
       <Dev
-        className="absolute top-0 bottom-7 right-10 mt-auto mb-auto w-28"
+        className="absolute bottom-7 right-10 top-0 mb-auto mt-auto w-28"
         id="devSvg"
       />
     </div>

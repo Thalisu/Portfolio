@@ -60,7 +60,7 @@ export default function RelativeToSelfContainer(props: PropType) {
         },
       });
     },
-    { scope: ref }
+    { scope: ref },
   );
 
   return (

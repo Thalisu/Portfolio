@@ -5,7 +5,7 @@ export default function Buttons() {
   const { ref, buttonAnimation } = useButtonAnimation();
 
   return (
-    <div className="flex gap-20 justify-center" ref={ref}>
+    <div className="flex justify-center gap-20" ref={ref}>
       <ProjectsButtonFilter
         text={"Ver mais"}
         i={0}

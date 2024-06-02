@@ -61,13 +61,13 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
         });
       });
     },
-    { scope: ref, dependencies: [isHovering] }
+    { scope: ref, dependencies: [isHovering] },
   );
 
   const setIsHoveringFunc = (
     isHovering: boolean,
     center = { x: 0, y: 0 },
-    scale?: number
+    scale?: number,
   ) => {
     if (isHovering) {
       cursorAnimations.current.scaleUp(scale);
@@ -90,58 +90,58 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
     <cursorContext.Provider value={{ setIsHoveringFunc }}>
       <div
         ref={ref}
-        className="fixed w-svw h-svh bg-transparent pointer-events-none z-[9999999] mix-blend-difference"
+        className="pointer-events-none fixed z-[9999999] h-svh w-svw bg-transparent mix-blend-difference"
       >
         <div
-          className="w-4 aspect-square rounded-full fixed bg-primary"
+          className="fixed aspect-square w-4 rounded-full bg-primary"
           id="circle"
         ></div>
         <div
-          className="w-4 aspect-square rounded-full fixed bg-primary"
+          className="fixed aspect-square w-4 rounded-full bg-primary"
           id="circle"
         ></div>
         <div
-          className="w-4 aspect-square rounded-full fixed bg-primary"
+          className="fixed aspect-square w-4 rounded-full bg-primary"
           id="circle"
         ></div>
         <div
-          className="w-4 aspect-square rounded-full fixed bg-primary"
+          className="fixed aspect-square w-4 rounded-full bg-primary"
           id="circle"
         ></div>
         <div
-          className="w-4 aspect-square rounded-full fixed bg-primary"
+          className="fixed aspect-square w-4 rounded-full bg-primary"
           id="circle"
         ></div>
         <div
-          className="w-4 aspect-square rounded-full fixed bg-primary"
+          className="fixed aspect-square w-4 rounded-full bg-primary"
           id="circle"
         ></div>
         <div
-          className="w-4 aspect-square rounded-full fixed bg-primary"
+          className="fixed aspect-square w-4 rounded-full bg-primary"
           id="circle"
         ></div>
         <div
-          className="w-4 aspect-square rounded-full fixed bg-primary"
+          className="fixed aspect-square w-4 rounded-full bg-primary"
           id="circle"
         ></div>
         <div
-          className="w-4 aspect-square rounded-full fixed bg-primary"
+          className="fixed aspect-square w-4 rounded-full bg-primary"
           id="circle"
         ></div>
         <div
-          className="w-4 aspect-square rounded-full fixed bg-primary"
+          className="fixed aspect-square w-4 rounded-full bg-primary"
           id="circle"
         ></div>
         <div
-          className="w-4 aspect-square rounded-full fixed bg-primary"
+          className="fixed aspect-square w-4 rounded-full bg-primary"
           id="circle"
         ></div>
         <div
-          className="w-4 aspect-square rounded-full fixed bg-primary"
+          className="fixed aspect-square w-4 rounded-full bg-primary"
           id="circle"
         ></div>
         <div
-          className="w-4 aspect-square rounded-full fixed bg-primary"
+          className="fixed aspect-square w-4 rounded-full bg-primary"
           id="circle"
         ></div>
       </div>

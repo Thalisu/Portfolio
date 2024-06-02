@@ -12,7 +12,7 @@ export default function AboutMyWork() {
   return (
     <RelativeToSelfContainer {...containerProps}>
       <div
-        className="max-w-screen-xl w-full h-full px-4 relative rounded-[3px]"
+        className="relative h-full w-full max-w-screen-xl rounded-[3px] px-4"
         id="container"
       >
         <Objective />

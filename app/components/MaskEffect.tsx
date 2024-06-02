@@ -1,5 +1,5 @@
 import { CircularMask } from "./svgs";
 
 export default function MaskEffect() {
-  return <CircularMask className="absolute w-full h-full bg-transparent" />;
+  return <CircularMask className="absolute h-full w-full bg-transparent" />;
 }

@@ -16,9 +16,9 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`w-svw h-fit flex flex-col items-center bg-primary before:fixed overflow-x-hidden before:w-full before:h-full before:[filter:url(#noiseFilter)] before:z-[1000000] before:pointer-events-none before:opacity-20 before: text-[#aeae9d] cursor-none`}
+        className={`flex h-fit w-svw cursor-none flex-col items-center overflow-x-hidden bg-primary text-[#aeae9d] before:pointer-events-none before:fixed before:z-[1000000] before:h-full before:w-full before:opacity-20 before:[filter:url(#noiseFilter)]`}
       >
-        <NoiseFilter className="absolute pointer-events-none w-0 h-0" />
+        <NoiseFilter className="pointer-events-none absolute h-0 w-0" />
         <CursorProvider>{children}</CursorProvider>
       </body>
     </html>
