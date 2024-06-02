@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import React from "react";
 
 export type SVGType = HTMLElement & SVGElement;
 export interface SplitedElement {
@@ -25,4 +25,23 @@ export interface ProjectsButtonFilter {
   text: string;
   i: number;
   buttonAnimation: gsap.core.Tween[] | undefined;
+}
+
+export type MouseEvents = MouseEvent | React.MouseEvent;
+
+export interface CursorAnimations {
+  move: (e: MouseEvents) => void;
+  scaleUp: (scale: number | undefined) => void;
+  scaleDown: () => void;
+}
+
+export interface CursorContext {
+  setIsHoveringFunc: (
+    isHovering: boolean,
+    center?: {
+      x: number;
+      y: number;
+    },
+    scale?: number
+  ) => void;
 }
