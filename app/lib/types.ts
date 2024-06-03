@@ -29,19 +29,21 @@ export interface ProjectsButtonFilter {
 
 export type MouseEvents = MouseEvent | React.MouseEvent;
 
-export interface CursorAnimations {
-  move: (e: MouseEvents) => void;
-  scaleUp: (scale: number | undefined) => void;
-  scaleDown: () => void;
+export interface Cursor {
+  scaleDefault: () => void;
+  scaleUp: (scale: number) => void;
+  handleMouseMove: (e: MouseEvents) => void;
 }
 
 export interface CursorContext {
-  setIsHoveringFunc: (
-    isHovering: boolean,
-    center?: {
-      x: number;
-      y: number;
-    },
-    scale?: number
-  ) => void;
+  cursor: Cursor;
+  setIsHovering: React.Dispatch<
+    React.SetStateAction<{
+      state: boolean;
+      center: {
+        x: number;
+        y: number;
+      };
+    }>
+  >;
 }

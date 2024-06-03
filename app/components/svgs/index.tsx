@@ -5,3 +5,4 @@ export { default as CircularScrollTexts } from "@/app/components/svgs/circularSc
 export { default as NoiseFilter } from "@/app/components/svgs/noiseFilter.svg";
 export { default as Dev } from "@/app/components/svgs/dev.svg";
 export { default as CircularMask } from "@/app/components/svgs/circularMask.svg";
+export { default as CursorSVG } from "@/app/components/svgs/cursor.svg";

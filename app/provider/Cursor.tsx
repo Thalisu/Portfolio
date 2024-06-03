@@ -1,17 +1,19 @@
 "use client";
 import cursorContext from "../context/cursor";
 import { useGSAP } from "@gsap/react";
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { CursorAnimations, MouseEvents } from "../lib/types";
+import { Cursor, MouseEvents } from "../lib/types";
+import { CursorSVG } from "../components/svgs";
 
 const CursorProvider = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef<HTMLDivElement | null>(null);
-  const cursorAnimations = useRef<CursorAnimations>({
-    move: () => {},
-    scaleUp: () => {},
-    scaleDown: () => {},
+  const animations = useRef<Cursor>({
+    scaleDefault: () => {},
+    scaleUp: (scale: number) => {},
+    handleMouseMove: (e: MouseEvents) => {},
   });
+  const [cursor, setCursor] = useState<Cursor>();
   const [isHovering, setIsHovering] = useState({
     state: false,
     center: { x: 0, y: 0 },
@@ -22,11 +24,28 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
       if (!ref.current || !contextSafe) return;
       const childs = Array.from(ref.current.childNodes);
       childs.map((child, i) => {
-        gsap.set(child, { scale: (childs.length - i) / childs.length });
+        gsap.set(child, {
+          scale: (childs.length - i) / childs.length,
+        });
       });
 
-      cursorAnimations.current.move = contextSafe((e: MouseEvents) => {
+      animations.current.scaleDefault = contextSafe(() => {
+        childs.map((child, i) => {
+          gsap.to(child, {
+            scale: (childs.length - i) / childs.length,
+            overwrite: "auto",
+            duration: 0.25,
+          });
+        });
+      });
+
+      animations.current.scaleUp = contextSafe((scale: number) => {
+        return gsap.to(childs, { scale, duration: 0.25, overwrite: "auto" });
+      });
+
+      animations.current.handleMouseMove = contextSafe((e: MouseEvents) => {
         if (!isHovering.state) {
+          gsap.set(childs, { opacity: 1 });
           gsap.to(childs, {
             x: e.clientX - 8,
             y: e.clientY - 8,
@@ -36,66 +55,42 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
             overwrite: "auto",
           });
         } else {
+          gsap.set(childs, { opacity: 0 });
+          gsap.set(childs[0], { opacity: 1 });
           gsap.to(childs, {
             x: isHovering.center.x - 8,
             y: isHovering.center.y - 8,
             duration: 0.25,
-            ease: "power1",
+            ease: "power4",
+            overwrite: "auto",
           });
         }
-      });
-
-      cursorAnimations.current.scaleUp = contextSafe((scale) => {
-        gsap.to(childs, {
-          scale,
-          duration: 0.25,
-          overwrite: "auto",
-        });
-      });
-      cursorAnimations.current.scaleDown = contextSafe(() => {
-        childs.map((child, i) => {
-          gsap.to(child, {
-            scale: (childs.length - i) / childs.length,
-            duration: 0.25,
-          });
-        });
       });
     },
     { scope: ref, dependencies: [isHovering] },
   );
 
-  const setIsHoveringFunc = (
-    isHovering: boolean,
-    center = { x: 0, y: 0 },
-    scale?: number,
-  ) => {
-    if (isHovering) {
-      cursorAnimations.current.scaleUp(scale);
-      setIsHovering({ state: isHovering, center });
-    } else {
-      cursorAnimations.current.scaleDown();
-      setIsHovering((prev) => ({ ...prev, state: isHovering }));
-    }
-  };
-
-  useLayoutEffect(() => {
-    const animation = cursorAnimations.current.move;
-    window.addEventListener("mousemove", animation);
+  useEffect(() => {
+    const handler = animations.current.handleMouseMove;
+    window.addEventListener("mousemove", handler);
     return () => {
-      window.removeEventListener("mousemove", animation);
+      window.removeEventListener("mousemove", handler);
     };
   }, [isHovering]);
+  useEffect(() => {
+    setCursor({ ...animations.current });
+  }, []);
 
   return (
-    <cursorContext.Provider value={{ setIsHoveringFunc }}>
+    <cursorContext.Provider value={{ cursor: cursor, setIsHovering }}>
       <div
         ref={ref}
         className="pointer-events-none fixed z-[9999999] h-svh w-svw bg-transparent mix-blend-difference"
       >
-        <div
-          className="fixed aspect-square w-4 rounded-full bg-primary"
-          id="circle"
-        ></div>
+        <CursorSVG
+          className="fixed aspect-square w-4"
+          id="circle 1"
+        ></CursorSVG>
         <div
           className="fixed aspect-square w-4 rounded-full bg-primary"
           id="circle"
