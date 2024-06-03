@@ -3,17 +3,24 @@ import cursorContext from "../context/cursor";
 import { useGSAP } from "@gsap/react";
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { Cursor, MouseEvents } from "../lib/types";
+import { Cursor, CursorAnimations, MouseEvents } from "../lib/types";
 import { CursorSVG } from "../components/svgs";
 
 const CursorProvider = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef<HTMLDivElement | null>(null);
-  const animations = useRef<Cursor>({
+  const animations = useRef<CursorAnimations>({
+    onPageOpen: () => {},
+    scaleDefault: () => {},
+    scaleUp: (scale: number) => {},
+    handleMouseMove: (e: MouseEvents) => {},
+    turbulence: null,
+  });
+  const [cursor, setCursor] = useState<Cursor>({
+    size: 16,
     scaleDefault: () => {},
     scaleUp: (scale: number) => {},
     handleMouseMove: (e: MouseEvents) => {},
   });
-  const [cursor, setCursor] = useState<Cursor>();
   const [isHovering, setIsHovering] = useState({
     state: false,
     center: { x: 0, y: 0 },
@@ -23,43 +30,97 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
     (context, contextSafe) => {
       if (!ref.current || !contextSafe) return;
       const childs = Array.from(ref.current.childNodes);
-      childs.map((child, i) => {
-        gsap.set(child, {
-          scale: (childs.length - i) / childs.length,
+
+      animations.current.onPageOpen = contextSafe(() => {
+        childs.map((child, i) => {
+          gsap.set(child, {
+            scale: (childs.length - i) / childs.length,
+          });
+        });
+        gsap.set(childs, {
+          width: cursor.size,
+          height: cursor.size,
+        });
+        gsap.set("#circleSVG", {
+          r: cursor.size / 2,
+          cx: "50%",
+          cy: "50%",
         });
       });
+      const tl = gsap.timeline({ paused: true });
+
+      animations.current.turbulence = tl
+        .to(
+          "#turbulence",
+          {
+            attr: { baseFrequency: 0.2 },
+            duration: 4,
+            yoyo: true,
+            repeat: -1,
+            ease: "none",
+          },
+          "<",
+        )
+        .to(
+          childs[0],
+          {
+            rotateZ: -360,
+            duration: 4,
+            ease: "none",
+            repeat: -1,
+          },
+          "<",
+        );
 
       animations.current.scaleDefault = contextSafe(() => {
+        animations.current.turbulence?.pause(0);
+        gsap.set(childs, { opacity: 1 });
         childs.map((child, i) => {
           gsap.to(child, {
             scale: (childs.length - i) / childs.length,
-            overwrite: "auto",
             duration: 0.25,
+            overwrite: "auto",
           });
+        });
+        gsap.to("#circleSVG", {
+          r: cursor.size / 2,
+          duration: 0.25,
+          overwrite: "auto",
         });
       });
 
       animations.current.scaleUp = contextSafe((scale: number) => {
-        return gsap.to(childs, { scale, duration: 0.25, overwrite: "auto" });
+        gsap.set(childs, { opacity: 0, overwrite: "auto" });
+        gsap.set(childs[0], { opacity: 1, overwrite: "auto" });
+        gsap.to(childs, { scale, duration: 0.25, overwrite: "auto" });
+        gsap.to("#circleSVG", {
+          r: (cursor.size / 2) * scale,
+          duration: 0.25,
+          overwrite: "auto",
+        });
+        animations.current.turbulence?.play(0);
       });
+    },
+    { scope: ref },
+  );
 
+  useGSAP(
+    (context, contextSafe) => {
+      if (!ref.current || !contextSafe) return;
       animations.current.handleMouseMove = contextSafe((e: MouseEvents) => {
         if (!isHovering.state) {
-          gsap.set(childs, { opacity: 1 });
-          gsap.to(childs, {
-            x: e.clientX - 8,
-            y: e.clientY - 8,
+          gsap.to("#circle", {
+            x: e.clientX - cursor.size / 2,
+            y: e.clientY - cursor.size / 2,
             stagger: 0.003,
             duration: 0.1,
             ease: "power3",
             overwrite: "auto",
           });
         } else {
-          gsap.set(childs, { opacity: 0 });
-          gsap.set(childs[0], { opacity: 1 });
-          gsap.to(childs, {
-            x: isHovering.center.x - 8,
-            y: isHovering.center.y - 8,
+          gsap.to("#circle", {
+            x: isHovering.center.x - cursor.size / 2,
+            y: isHovering.center.y - cursor.size / 2,
             duration: 0.25,
             ease: "power4",
             overwrite: "auto",
@@ -77,8 +138,11 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
       window.removeEventListener("mousemove", handler);
     };
   }, [isHovering]);
+
   useEffect(() => {
-    setCursor({ ...animations.current });
+    const { onPageOpen, ...rest } = animations.current;
+    animations.current.onPageOpen();
+    setCursor((prev) => ({ ...prev, ...rest }));
   }, []);
 
   return (
@@ -87,58 +151,19 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
         ref={ref}
         className="pointer-events-none fixed z-[9999999] h-svh w-svw bg-transparent mix-blend-difference"
       >
-        <CursorSVG
-          className="fixed aspect-square w-4"
-          id="circle 1"
-        ></CursorSVG>
-        <div
-          className="fixed aspect-square w-4 rounded-full bg-primary"
-          id="circle"
-        ></div>
-        <div
-          className="fixed aspect-square w-4 rounded-full bg-primary"
-          id="circle"
-        ></div>
-        <div
-          className="fixed aspect-square w-4 rounded-full bg-primary"
-          id="circle"
-        ></div>
-        <div
-          className="fixed aspect-square w-4 rounded-full bg-primary"
-          id="circle"
-        ></div>
-        <div
-          className="fixed aspect-square w-4 rounded-full bg-primary"
-          id="circle"
-        ></div>
-        <div
-          className="fixed aspect-square w-4 rounded-full bg-primary"
-          id="circle"
-        ></div>
-        <div
-          className="fixed aspect-square w-4 rounded-full bg-primary"
-          id="circle"
-        ></div>
-        <div
-          className="fixed aspect-square w-4 rounded-full bg-primary"
-          id="circle"
-        ></div>
-        <div
-          className="fixed aspect-square w-4 rounded-full bg-primary"
-          id="circle"
-        ></div>
-        <div
-          className="fixed aspect-square w-4 rounded-full bg-primary"
-          id="circle"
-        ></div>
-        <div
-          className="fixed aspect-square w-4 rounded-full bg-primary"
-          id="circle"
-        ></div>
-        <div
-          className="fixed aspect-square w-4 rounded-full bg-primary"
-          id="circle"
-        ></div>
+        <CursorSVG className="fixed" id="circle"></CursorSVG>
+        <div className="fixed rounded-full bg-primary" id="circle"></div>
+        <div className="fixed rounded-full bg-primary" id="circle"></div>
+        <div className="fixed rounded-full bg-primary" id="circle"></div>
+        <div className="fixed rounded-full bg-primary" id="circle"></div>
+        <div className="fixed rounded-full bg-primary" id="circle"></div>
+        <div className="fixed rounded-full bg-primary" id="circle"></div>
+        <div className="fixed rounded-full bg-primary" id="circle"></div>
+        <div className="fixed rounded-full bg-primary" id="circle"></div>
+        <div className="fixed rounded-full bg-primary" id="circle"></div>
+        <div className="fixed rounded-full bg-primary" id="circle"></div>
+        <div className="fixed rounded-full bg-primary" id="circle"></div>
+        <div className="fixed rounded-full bg-primary" id="circle"></div>
       </div>
       {children}
     </cursorContext.Provider>

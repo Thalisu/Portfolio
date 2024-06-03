@@ -49,7 +49,6 @@ export default function ClickableContainer({
     const onMouseLeave = handlers.current.handleMouseLeave;
     const onMouseEnter = handlers.current.handleMouseEnter;
     const container = ref.current;
-    console.log("s");
 
     container.addEventListener("mouseenter", onMouseEnter);
     container.addEventListener("mouseleave", onMouseLeave);

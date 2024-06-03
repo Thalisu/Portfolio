@@ -29,10 +29,17 @@ export interface ProjectsButtonFilter {
 
 export type MouseEvents = MouseEvent | React.MouseEvent;
 
-export interface Cursor {
+export interface CursorAnimations {
+  onPageOpen: () => void;
   scaleDefault: () => void;
   scaleUp: (scale: number) => void;
   handleMouseMove: (e: MouseEvents) => void;
+  turbulence: gsap.core.Timeline | null;
+}
+
+export interface Cursor
+  extends Omit<CursorAnimations, "onPageOpen" | "turbulence"> {
+  size: number;
 }
 
 export interface CursorContext {
