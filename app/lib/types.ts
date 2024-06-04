@@ -32,7 +32,7 @@ export type MouseEvents = MouseEvent | React.MouseEvent;
 export interface CursorAnimations {
   onPageOpen: () => void;
   scaleDefault: () => void;
-  scaleUp: (scale: number) => void;
+  scaleUp: (scale: number, animate: boolean) => void;
   handleMouseMove: (e: MouseEvents) => void;
   turbulence: gsap.core.Timeline | null;
 }
@@ -53,4 +53,12 @@ export interface CursorContext {
       };
     }>
   >;
+}
+
+export interface Project {
+  name: string;
+  type: string;
+  age: number;
+  img: string;
+  href: string;
 }
