@@ -55,8 +55,9 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
           scaleUp(scale, animate, childs, animations.current.turbulence);
       });
 
-      animations.current.handleMouseMove = contextSafe((e: MouseEvents) =>
-        handleMouseMove(e, cursor.size),
+      animations.current.handleMouseMove = contextSafe(
+        (e: MouseEvents, stagger?: number, duration?: number) =>
+          handleMouseMove(e, cursor.size, stagger, duration),
       );
 
       animations.current.handleHover = contextSafe((isHovering) =>

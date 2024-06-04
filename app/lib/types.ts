@@ -38,7 +38,11 @@ export interface CursorAnimations {
   onPageOpen: () => void;
   toDefaultScale: () => void;
   scaleUp: (scale: number, animate: boolean) => void;
-  handleMouseMove: (e: MouseEvents) => void;
+  handleMouseMove: (
+    e: MouseEvents,
+    stagger?: number,
+    duration?: number,
+  ) => void;
   handleHover: (isHovering: IsHovering) => void;
   turbulence: gsap.core.Timeline | null;
 }

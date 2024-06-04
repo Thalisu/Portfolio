@@ -1,7 +1,7 @@
 "useClient";
 import gsap from "gsap";
 import React, { useContext, useLayoutEffect, useRef } from "react";
-import { CursorContext } from "../lib/types";
+import { CursorContext, MouseEvents } from "../lib/types";
 import cursorContext from "@/app/context/cursor";
 import { useGSAP } from "@gsap/react";
 import { getCenter } from "../lib/utils";
@@ -27,7 +27,7 @@ export default function ClickableContainer({
   const ref = useRef<HTMLAnchorElement>(null);
   const handlers = useRef({
     handleMouseEnter: () => {},
-    handleMouseLeave: () => {},
+    handleMouseLeave: (e: MouseEvents) => {},
   });
 
   useGSAP(
@@ -44,13 +44,14 @@ export default function ClickableContainer({
         }
       });
 
-      handlers.current.handleMouseLeave = contextSafe(() => {
+      handlers.current.handleMouseLeave = contextSafe((e: MouseEvents) => {
         gsap.to(ref.current, {
           x: 0,
           y: 0,
           overwrite: "auto",
         });
         cursor.toDefaultScale();
+        cursor.handleMouseMove(e, 0);
         setIsHovering((prev) => ({ ...prev, state: false }));
       });
     },
