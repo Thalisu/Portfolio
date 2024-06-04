@@ -1,4 +1,3 @@
-import { forwardRef } from "react";
 import { poppins } from "../../../fonts";
 
 export default function TopText() {

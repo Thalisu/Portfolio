@@ -1,6 +1,6 @@
 import Objective from "./Objective";
 import SkillSection from "@/app/components/SkillSection";
-import skills from "./skills";
+import skills from "../../../lib/skills";
 import RelativeToSelfContainer from "@/app/components/RelativeToSelfContainer";
 
 export default function AboutMyWork() {

@@ -1,5 +1,4 @@
 import { poppins } from "@/app/ui/fonts";
-import { forwardRef } from "react";
 
 export default function MiddleText() {
   return (

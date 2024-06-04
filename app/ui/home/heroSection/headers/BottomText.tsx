@@ -14,23 +14,17 @@ export default function BottomText() {
       >
         developer
       </h2>
-      <ClickableContainer>
-        <a
-          href="https://github.com/Thalisu"
-          className="svg translate-y-7 cursor-none"
-          target="_blank"
-        >
-          <GithubLogo className="w-5 text-primary" />
-        </a>
+      <ClickableContainer
+        href="https://github.com/Thalisu"
+        className="svg translate-y-7 cursor-none"
+      >
+        <GithubLogo className="w-5 text-primary" />
       </ClickableContainer>
-      <ClickableContainer>
-        <a
-          href="https://www.linkedin.com/in/thalison-de-melo-correa-744958276/"
-          className="svg translate-y-7 cursor-none"
-          target="_blank"
-        >
-          <LinkedinLogo className="w-5 text-primary" />
-        </a>
+      <ClickableContainer
+        href="https://www.linkedin.com/in/thalison-de-melo-correa-744958276/"
+        className="svg translate-y-7 cursor-none"
+      >
+        <LinkedinLogo className="w-5 text-primary" />
       </ClickableContainer>
     </div>
   );
