@@ -53,11 +53,18 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
         .to(
           "#turbulence",
           {
-            attr: { baseFrequency: 0.2 },
-            duration: 4,
+            attr: { baseFrequency: 0.5 },
+            duration: 5,
             yoyo: true,
             repeat: -1,
             ease: "none",
+          },
+          "<",
+        )
+        .set(
+          "#turbulence",
+          {
+            attr: { numOctaves: 5 },
           },
           "<",
         )
@@ -82,24 +89,25 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
             overwrite: "auto",
           });
         });
-        gsap.to("#circleSVG", {
-          r: cursor.size / 2,
-          duration: 0.25,
+        gsap.set("#turbulence", {
+          attr: { numOctaves: 0 },
           overwrite: "auto",
         });
       });
 
-      animations.current.scaleUp = contextSafe((scale: number) => {
-        gsap.set(childs, { opacity: 0, overwrite: "auto" });
-        gsap.set(childs[0], { opacity: 1, overwrite: "auto" });
-        gsap.to(childs, { scale, duration: 0.25, overwrite: "auto" });
-        gsap.to("#circleSVG", {
-          r: (cursor.size / 2) * scale,
-          duration: 0.25,
-          overwrite: "auto",
-        });
-        animations.current.turbulence?.play(0);
-      });
+      animations.current.scaleUp = contextSafe(
+        (scale: number, animate: boolean) => {
+          gsap.set(childs, { opacity: 0, overwrite: "auto" });
+          gsap.set([childs[0], childs[1]], { opacity: 1, overwrite: "auto" });
+          gsap.to(childs, {
+            scale: scale * 0.9,
+            duration: 0.25,
+            overwrite: "auto",
+          });
+          gsap.to(childs[0], { scale, duration: 0.25, overwrite: "auto" });
+          if (animate) animations.current.turbulence?.play(0);
+        },
+      );
     },
     { scope: ref },
   );
@@ -114,7 +122,7 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
             y: e.clientY - cursor.size / 2,
             stagger: 0.003,
             duration: 0.1,
-            ease: "power3",
+            ease: "power3.out",
             overwrite: "auto",
           });
         } else {
@@ -122,7 +130,7 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
             x: isHovering.center.x - cursor.size / 2,
             y: isHovering.center.y - cursor.size / 2,
             duration: 0.25,
-            ease: "power4",
+            ease: "power3.out",
             overwrite: "auto",
           });
         }
@@ -151,7 +159,7 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
         ref={ref}
         className="pointer-events-none fixed z-[9999999] h-svh w-svw bg-transparent mix-blend-difference"
       >
-        <CursorSVG className="fixed" id="circle"></CursorSVG>
+        <CursorSVG className="fixed h-4 w-4" id="circle"></CursorSVG>
         <div className="fixed rounded-full bg-primary" id="circle"></div>
         <div className="fixed rounded-full bg-primary" id="circle"></div>
         <div className="fixed rounded-full bg-primary" id="circle"></div>
