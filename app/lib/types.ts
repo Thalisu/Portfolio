@@ -72,3 +72,11 @@ export interface Project {
   img: string;
   href: string;
 }
+
+export type QuickToElement =
+  | string
+  | string[]
+  | HTMLElement
+  | HTMLElement[]
+  | ChildNode
+  | ChildNode[];
