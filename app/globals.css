@@ -24,6 +24,10 @@ body {
   mask-size: contain;
 }
 
+.mergeEffect {
+  filter: blur(1px) contrast(100);
+}
+
 @layer base {
   :root {
     --primary-background: #e8e8e3;

@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Cursor, CursorAnimations, MouseEvents } from "../lib/types";
 import { CursorSVG } from "../components/svgs";
+import { addClassList, removeClassList } from "../lib/utils";
 
 const CursorProvider = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -93,6 +94,11 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
           attr: { numOctaves: 0 },
           overwrite: "auto",
         });
+        let classListChange = childs[0] as HTMLElement;
+        removeClassList(["mergeEffect"], [childs[0], childs[1]]);
+        classListChange.classList.remove("mergeEffect");
+        classListChange = childs[1] as HTMLElement;
+        classListChange.classList.remove("mergeEffect");
       });
 
       animations.current.scaleUp = contextSafe(
@@ -105,7 +111,10 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
             overwrite: "auto",
           });
           gsap.to(childs[0], { scale, duration: 0.25, overwrite: "auto" });
-          if (animate) animations.current.turbulence?.play(0);
+          if (animate) {
+            addClassList(["mergeEffect"], [childs[0], childs[1]]);
+            animations.current.turbulence?.play(0);
+          }
         },
       );
     },
