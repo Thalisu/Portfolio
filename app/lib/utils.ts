@@ -1,12 +1,11 @@
 import SplitTextJS from "split-text-js";
-import { gsap } from "gsap";
 
 import { SplitedElement } from "@/app/lib/types";
 
 export const setSvgAnimation = (
   path: Element,
   animation: string,
-  property?: string
+  property?: string,
 ) => {
   if (path instanceof SVGPathElement) {
     const totalLength = path.getTotalLength().toString();
@@ -35,24 +34,8 @@ export const getSplitText = (nodes: ChildNode[]) => {
   return splitTitles;
 };
 
-export const animateCursor = (
-  animations: gsap.QuickToFunc[],
-  child: string,
-  duration: number,
-  ease: string,
-  stagger: number
-) => {
-  return animations
-    .concat(
-      gsap.quickTo(child, "x", {
-        duration,
-        ease,
-      })
-    )
-    .concat(
-      gsap.quickTo(child, "y", {
-        duration,
-        ease,
-      })
-    );
+export const getCenter = (element: HTMLElement) => {
+  const { top, left, width, height } = element.getBoundingClientRect();
+
+  return { x: left + width / 2, y: top + height / 2 };
 };
