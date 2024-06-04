@@ -21,7 +21,7 @@ export default function ProjectsButtonFilter(props: PropTypes) {
 
   return (
     <button
-      className="relative h-10 w-1/5 overflow-clip rounded border border-primary bg-primary px-4 py-2"
+      className="relative h-10 w-1/5 cursor-none overflow-clip rounded border border-primary bg-primary px-4 py-2"
       onMouseEnter={() => handleMouseEnter(props.i)}
       onMouseLeave={() => handleMouseLeave(props.i)}
     >
