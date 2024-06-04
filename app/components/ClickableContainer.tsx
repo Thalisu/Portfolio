@@ -4,14 +4,27 @@ import React, { useContext, useLayoutEffect, useRef } from "react";
 import { CursorContext } from "../lib/types";
 import cursorContext from "@/app/context/cursor";
 import { useGSAP } from "@gsap/react";
+import { getCenter } from "../lib/utils";
 
 export default function ClickableContainer({
   children,
+  href,
+  className,
+  scale = 2,
+  center = true,
+  animate = true,
+  text,
 }: {
-  children: React.ReactElement;
+  children: React.ReactNode;
+  href: string;
+  className: string;
+  scale?: number;
+  center?: boolean;
+  animate?: boolean;
+  text?: string;
 }) {
   const { cursor, setIsHovering } = useContext(cursorContext) as CursorContext;
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLAnchorElement>(null);
   const handlers = useRef({
     handleMouseEnter: () => {},
     handleMouseLeave: () => {},
@@ -23,12 +36,12 @@ export default function ClickableContainer({
 
       handlers.current.handleMouseEnter = contextSafe(() => {
         if (!ref.current) return;
-        const { top, left, width, height } =
-          ref.current.getBoundingClientRect();
-
-        const center = { x: left + width / 2, y: top + height / 2 };
-        cursor.scaleUp(2);
-        setIsHovering({ state: true, center });
+        if (center) {
+          cursor.scaleUp(scale, animate);
+          setIsHovering({ state: true, center: getCenter(ref.current) });
+        } else {
+          cursor.scaleUp(scale, animate);
+        }
       });
 
       handlers.current.handleMouseLeave = contextSafe(() => {
@@ -58,5 +71,9 @@ export default function ClickableContainer({
     };
   }, [cursor]);
 
-  return React.cloneElement(children, { ref });
+  return (
+    <a href={href} className={className} target="_blank" ref={ref}>
+      {children}
+    </a>
+  );
 }
