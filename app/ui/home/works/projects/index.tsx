@@ -3,7 +3,7 @@
 import Buttons from "./Buttons";
 import ProjectsList from "./ProjectsList";
 import MaskEffect from "@/app/components/MaskEffect";
-import useMaskTurbulenceAnimation from "@/app/animations/works/maskTurbulence";
+import useMaskTurbulenceAnimation from "../../animations/works/container";
 
 export default function Projects() {
   const ref = useMaskTurbulenceAnimation();

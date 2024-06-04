@@ -1,5 +1,5 @@
 "use client";
-import useWorksHeaderAnimation from "@/app/animations/works/header";
+import useWorksHeaderAnimation from "../animations/works/header";
 import { poppins } from "../../fonts";
 
 export default function Header() {

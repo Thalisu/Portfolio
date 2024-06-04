@@ -1,4 +1,4 @@
-import useProjectItemAnimation from "../../animations/works/projectItem";
+import useProjectItemAnimation from "@/app/ui/home/animations/works/projectItem";
 import { Project } from "../../lib/types";
 import { inter } from "../../ui/fonts";
 import ClickableContainer from "../ClickableContainer";

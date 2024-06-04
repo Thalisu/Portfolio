@@ -1,4 +1,4 @@
-import useButtonAnimation from "@/app/animations/works/button";
+import useButtonAnimation from "../../animations/works/button";
 import ProjectsButtonFilter from "@/app/components/ProjectsButtonFilter";
 
 export default function Buttons() {
