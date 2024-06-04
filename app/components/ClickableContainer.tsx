@@ -50,7 +50,7 @@ export default function ClickableContainer({
           y: 0,
           overwrite: "auto",
         });
-        cursor.scaleDefault();
+        cursor.toDefaultScale();
         setIsHovering((prev) => ({ ...prev, state: false }));
       });
     },

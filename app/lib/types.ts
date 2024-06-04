@@ -29,16 +29,22 @@ export interface ProjectsButtonFilter {
 
 export type MouseEvents = MouseEvent | React.MouseEvent;
 
+export interface IsHovering {
+  state: boolean;
+  center: { x: number; y: number };
+}
+
 export interface CursorAnimations {
   onPageOpen: () => void;
-  scaleDefault: () => void;
+  toDefaultScale: () => void;
   scaleUp: (scale: number, animate: boolean) => void;
   handleMouseMove: (e: MouseEvents) => void;
+  handleHover: (isHovering: IsHovering) => void;
   turbulence: gsap.core.Timeline | null;
 }
 
 export interface Cursor
-  extends Omit<CursorAnimations, "onPageOpen" | "turbulence"> {
+  extends Omit<CursorAnimations, "onPageOpen" | "turbulence" | "handleHover"> {
   size: number;
 }
 
