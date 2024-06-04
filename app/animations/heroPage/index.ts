@@ -63,6 +63,11 @@ const useHeroPageAnimations = () => {
           onToggle: (self) => {
             if (self.progress === 0) {
               rtl.resume();
+              if (container.current)
+                container.current.style.pointerEvents = "auto";
+            } else {
+              if (container.current)
+                container.current.style.pointerEvents = "none";
             }
           },
           onEnter: () => {
@@ -80,7 +85,7 @@ const useHeroPageAnimations = () => {
         rotateX: -25,
       });
     },
-    { scope: container }
+    { scope: container },
   );
 
   return { ref: container };
