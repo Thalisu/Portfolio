@@ -1,7 +1,7 @@
 import SplitTextJS from "split-text-js";
 
 import { SplitedElement } from "@/app/lib/types";
-import { hasClasslistMethod } from "./typeGuards";
+import { isHTMLElement } from "./typeGuards";
 
 export const setSvgAnimation = (
   path: Element,
@@ -35,24 +35,23 @@ export const getSplitText = (nodes: ChildNode[]) => {
   return splitTitles;
 };
 
-export const getCenter = (element: HTMLElement) => {
+export const getCenter = (element: unknown) => {
+  if (!isHTMLElement(element)) return { x: 0, y: 0 };
   const { top, left, width, height } = element.getBoundingClientRect();
 
   return { x: left + width / 2, y: top + height / 2 };
 };
 
 export const addClassList = (classList: string[], elements: unknown[]) => {
-  if (elements.every((e) => hasClasslistMethod(e))) {
+  if (elements.every((e) => isHTMLElement(e))) {
     classList.map((className) => {
-      elements.map((e) => hasClasslistMethod(e) && e.classList.add(className));
+      elements.map((e) => isHTMLElement(e) && e.classList.add(className));
     });
   }
 };
 export const removeClassList = (classList: string[], elements: unknown[]) => {
-  if (elements.every((e) => hasClasslistMethod(e)))
+  if (elements.every((e) => isHTMLElement(e)))
     classList.map((className) => {
-      elements.map(
-        (e) => hasClasslistMethod(e) && e.classList.remove(className),
-      );
+      elements.map((e) => isHTMLElement(e) && e.classList.remove(className));
     });
 };

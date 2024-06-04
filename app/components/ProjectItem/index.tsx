@@ -1,13 +1,14 @@
-import Image from "next/image";
-import useProjectItemAnimation from "../animations/works/projectItem";
-import { Project } from "../lib/types";
-import { inter } from "../ui/fonts";
-import ClickableContainer from "./ClickableContainer";
+import useProjectItemAnimation from "../../animations/works/projectItem";
+import { Project } from "../../lib/types";
+import { inter } from "../../ui/fonts";
+import ClickableContainer from "../ClickableContainer";
 
 export default function ProjectItem({
   isLast,
+  carousel,
   ...project
 }: {
+  carousel: HTMLLIElement | null;
   isLast: boolean;
 } & Project) {
   const { ref, projectAnimation } = useProjectItemAnimation();
@@ -35,19 +36,8 @@ export default function ProjectItem({
         center={false}
         animate={false}
       >
-        <div className="absolute bottom-1/2 left-0 right-0 bg-[#393632] mix-blend-difference"></div>
-        <div className="absolute left-0 right-0 top-1/2 bg-[#393632] mix-blend-difference"></div>
-        <div
-          className={`pointer-events-none absolute bottom-1/2 left-1/2 right-1/2 top-1/2 aspect-video overflow-hidden opacity-0`}
-        >
-          <Image
-            src={project.img}
-            alt="Movie Streaming App Image"
-            width={1920}
-            height={1080}
-            objectFit="cover"
-          ></Image>
-        </div>
+        <div className="absolute bottom-1/2 left-0 right-0 bg-[#393632] opacity-25"></div>
+        <div className="absolute left-0 right-0 top-1/2 bg-[#393632] opacity-25"></div>
         <span className={`${inter.className} font-bold text-primary`}>
           {project.name}
         </span>
