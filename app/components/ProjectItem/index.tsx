@@ -4,6 +4,7 @@ import { inter } from "../../ui/fonts";
 import ClickableContainer from "../ClickableContainer";
 
 export default function ProjectItem({
+  index,
   isLast,
   carousel,
   handlers,
@@ -11,6 +12,7 @@ export default function ProjectItem({
 }: {
   handlers: CarouselHandlers | undefined;
   carousel: HTMLLIElement | null;
+  index: number;
   isLast: boolean;
 } & Project) {
   const { ref, projectAnimation } = useProjectItemAnimation();
@@ -19,7 +21,7 @@ export default function ProjectItem({
     projectAnimation?.isActive()
       ? projectAnimation?.play()
       : projectAnimation?.play(0);
-    handlers?.handleMouseEnter(e);
+    handlers?.handleMouseEnter(e, index);
   };
   const handleMouseLeave = () => {
     projectAnimation?.reverse();

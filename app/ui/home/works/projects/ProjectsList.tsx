@@ -11,6 +11,7 @@ export default function ProjectsList() {
     <ul className="h-96">
       {projects.map((project, i) => (
         <ProjectItem
+          index={i}
           isLast={i === projects.length - 1}
           {...project}
           key={crypto.randomUUID()}

@@ -85,6 +85,6 @@ export interface QuickToRef {
 
 export interface CarouselHandlers {
   handleMouseMove: (e: MouseEvents) => void;
-  handleMouseEnter: (e: MouseEvents) => void;
+  handleMouseEnter: (e: MouseEvents, project: number) => void;
   handleMouseLeave: () => void;
 }

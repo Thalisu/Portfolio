@@ -38,26 +38,36 @@ const useCarouselHandler = () => {
           contextSafe(() => {
             carouselMouseMove.current?.xTo(e.clientX - center.x);
             carouselMouseMove.current?.yTo(e.clientY - center.y);
-            seeMouseMove.current?.xTo(e.clientX - center.x - 12);
+            seeMouseMove.current?.xTo(e.clientX - center.x);
             seeMouseMove.current?.yTo(e.clientY - center.y);
           })();
         },
-        handleMouseEnter: (e: MouseEvents) => {
+        handleMouseEnter: (e: MouseEvents, project) => {
           const center = getCenter(ref.current);
           contextSafe(() => {
+            if (!ref.current) return;
             gsap.set(".carousel", {
               x: e.clientX - center.x,
               y: e.clientY - center.y,
               opacity: 1,
             });
             gsap.set(".see", {
-              x: e.clientX - center.x - 12,
+              x: e.clientX - center.x,
               y: e.clientY - center.y,
+            });
+            gsap.to(".see", {
               opacity: 1,
+              duration: 0.25,
+              ease: "power3.out",
+            });
+            gsap.to(ref.current.childNodes[0].childNodes[project], {
+              opacity: 1,
+              duration: 0.5,
+              ease: "power3.out",
             });
             gsap.to(".carousel", {
               scale: 1,
-              width: 256,
+              width: 288,
               borderWidth: 8,
               duration: 0.5,
               overwrite: "auto",
@@ -66,6 +76,7 @@ const useCarouselHandler = () => {
           })();
         },
         handleMouseLeave: contextSafe(() => {
+          if (!ref.current) return;
           gsap.to(".carousel", {
             width: 0,
             borderWidth: 0,
@@ -73,8 +84,15 @@ const useCarouselHandler = () => {
             overwrite: "auto",
             ease: "power3.in",
           });
-          gsap.set(".see", {
+          gsap.to(ref.current.childNodes[0].childNodes, {
             opacity: 0,
+            duration: 0.5,
+            ease: "power3.in",
+          });
+          gsap.to(".see", {
+            opacity: 0,
+            ease: "power3.in",
+            duration: 0.25,
           });
         }),
       });

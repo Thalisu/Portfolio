@@ -2,13 +2,13 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
+import { addClassList, removeClassList } from "@/app/lib/utils";
 
 const useMaskTurbulenceAnimation = () => {
   const ref = useRef<HTMLDivElement | null>(null);
   useGSAP(
     () => {
       if (!ref.current) return;
-      const container = ref.current;
       gsap.registerPlugin(ScrollTrigger);
 
       gsap.from(".mask", {
@@ -19,14 +19,15 @@ const useMaskTurbulenceAnimation = () => {
           scrub: true,
           onUpdate: (self) => {
             self.progress >= 0.7
-              ? (container.style.pointerEvents = "auto")
-              : (container.style.pointerEvents = "none");
+              ? removeClassList(["pointer-events-none"], [ref.current])
+              : addClassList(["pointer-events-none", "maskbg"], [ref.current]);
+            self.progress >= 0.9 && removeClassList(["maskbg"], [ref.current]);
           },
         },
         r: 0,
       });
     },
-    { scope: ref }
+    { scope: ref },
   );
   return ref;
 };
