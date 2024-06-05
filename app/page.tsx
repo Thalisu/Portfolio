@@ -3,7 +3,7 @@ import HeroSection from "./ui/home/heroSection";
 import AboutMyWork from "./ui/home/aboutMyWork";
 import Works from "./ui/home/works";
 import Contact from "./ui/home/contact";
-import RelativeToSelfContainer from "./components/RelativeToSelfContainer";
+import RelativeToSelfContainer from "./components/CardAnimatedContainer";
 
 export default function Home() {
   return (

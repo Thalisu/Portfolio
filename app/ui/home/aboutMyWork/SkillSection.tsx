@@ -1,7 +1,7 @@
 "use client";
-import { inter, poppins } from "../ui/fonts";
-import { SkillSection as PropTypes } from "../lib/types";
-import useSkillSectionAnimation from "../ui/home/animations/aboutMyWork/SkillSection";
+import { inter, poppins } from "../../fonts";
+import { SkillSection as PropTypes } from "../../../lib/types";
+import useSkillSectionAnimation from "./animations/SkillSection";
 
 export default function SkillSection(props: PropTypes) {
   const container = useSkillSectionAnimation(props.z);

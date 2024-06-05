@@ -1,7 +1,7 @@
 "use client";
 import { Dev } from "@/app/components/svgs";
 import { inter, poppins } from "../../fonts";
-import useObjectiveAnimation from "../animations/aboutMyWork/objective";
+import useObjectiveAnimation from "./animations/objective";
 
 export default function Objective() {
   const container = useObjectiveAnimation();

@@ -2,7 +2,7 @@
 import MiddleText from "./headers/MiddleText";
 import TopText from "./headers/TopText";
 import BottomText from "./headers/BottomText";
-import useHeroPageAnimations from "../animations/heroPage";
+import useHeroPageAnimations from "./animations";
 
 import { ArrowDown, CircularScrollTexts } from "@/app/components/svgs";
 

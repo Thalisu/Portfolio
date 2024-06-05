@@ -1,7 +1,7 @@
-import useProjectItemAnimation from "@/app/ui/home/animations/works/projectItem";
-import { CarouselHandlers, MouseEvents, Project } from "../../lib/types";
-import { inter } from "../../ui/fonts";
-import ClickableContainer from "../ClickableContainer";
+import useProjectItemAnimation from "@/app/ui/home/works/animations/projectItem";
+import { CarouselHandlers, MouseEvents, Project } from "@/app/lib/types";
+import { inter } from "@/app/ui/fonts";
+import ClickableContainer from "@/app/components/ClickableContainer";
 
 export default function ProjectItem({
   index,

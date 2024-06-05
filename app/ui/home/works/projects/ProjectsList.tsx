@@ -1,8 +1,8 @@
 "use client";
-import ProjectItem from "@/app/components/ProjectItem";
+import ProjectItem from "./ProjectItem";
 import projects from "../../../../lib/projects";
 import ProjectImageCarousel from "@/app/ui/home/works/projects/ProjectImageCarousel";
-import useCarouselHandler from "@/app/components/ProjectItem/useCarouselHandler";
+import useCarouselHandler from "./ProjectItem/useCarouselHandler";
 
 export default function ProjectsList() {
   const { ref, handlers } = useCarouselHandler();

@@ -1,5 +1,5 @@
 import Objective from "./Objective";
-import SkillSection from "@/app/components/SkillSection";
+import SkillSection from "@/app/ui/home/aboutMyWork/SkillSection";
 import skills from "../../../lib/skills";
 
 export default function AboutMyWork() {
