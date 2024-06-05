@@ -2,10 +2,10 @@ import { removeClassList } from "@/app/lib/utils";
 import gsap from "gsap";
 
 const toDefaultScale = (
-  turbulence: gsap.core.Timeline,
+  turbulence: gsap.core.Timeline | undefined,
   childs: ChildNode[],
 ) => {
-  turbulence.pause(0);
+  turbulence?.pause(0);
   gsap.set(childs, { opacity: 1 });
   childs.map((child, i) => {
     gsap.to(child, {

@@ -18,72 +18,53 @@ import handleHover from "./animations/handleHover";
 
 const CursorProvider = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef<HTMLDivElement | null>(null);
-  const animations = useRef<CursorAnimations>({
-    onPageOpen: () => {},
-    toDefaultScale: () => {},
-    scaleUp: (scale: number) => {},
-    handleMouseMove: (e: MouseEvents) => {},
-    handleHover: (isHovering: IsHovering) => {},
-    turbulence: null,
-  });
-  const [cursor, setCursor] = useState<Cursor>({
-    size: 16,
-    toDefaultScale: () => {},
-    scaleUp: (scale: number) => {},
-    handleMouseMove: (e: MouseEvents) => {},
-  });
-  const [isHovering, setIsHovering] = useState<IsHovering>({
-    state: false,
-    center: { x: 0, y: 0 },
-  });
+  const animations = useRef<CursorAnimations>();
+  const [cursor, setCursor] = useState<Cursor>();
+  const [isHovering, setIsHovering] = useState<IsHovering>();
 
   useGSAP(
     (context, contextSafe) => {
       if (!ref.current || !contextSafe) return;
       const childs = Array.from(ref.current.childNodes);
+      const cursorSize = 16;
 
-      onPageOpen(childs, cursor.size),
-        (animations.current.turbulence = turbulence(childs[0]));
+      onPageOpen(childs, cursorSize);
 
-      animations.current.toDefaultScale = contextSafe(() => {
-        if (animations.current.turbulence)
-          toDefaultScale(animations.current.turbulence, childs);
-      });
-
-      animations.current.scaleUp = contextSafe((scale, animate) => {
-        if (animations.current.turbulence)
-          scaleUp(scale, animate, childs, animations.current.turbulence);
-      });
-
-      animations.current.handleMouseMove = contextSafe(
-        (e: MouseEvents, stagger?: number, duration?: number) =>
-          handleMouseMove(e, cursor.size, stagger, duration),
-      );
-
-      animations.current.handleHover = contextSafe((isHovering) =>
-        handleHover(isHovering, cursor.size),
-      );
+      animations.current = {
+        turbulence: turbulence(childs[0]),
+        handleHover: contextSafe((isHovering) =>
+          handleHover(isHovering, cursorSize),
+        ),
+      };
 
       setCursor((prev) => ({
         ...prev,
-        toDefaultScale: animations.current.toDefaultScale,
-        scaleUp: animations.current.scaleUp,
-        handleMouseMove: animations.current.handleMouseMove,
+        toDefaultScale: contextSafe(() => {
+          toDefaultScale(animations.current?.turbulence, childs);
+        }),
+        scaleUp: contextSafe((scale, animate) => {
+          scaleUp(scale, animate, childs, animations.current?.turbulence);
+        }),
+        handleMouseMove: contextSafe(
+          (e: MouseEvents, stagger?: number, duration?: number) =>
+            handleMouseMove(e, cursorSize, stagger, duration),
+        ),
       }));
     },
     { scope: ref },
   );
 
   useEffect(() => {
-    const handler = animations.current.handleMouseMove;
-    isHovering.state
-      ? animations.current.handleHover(isHovering)
+    if (!cursor?.handleMouseMove) return
+    const handler = cursor.handleMouseMove;
+    isHovering?.state
+      ? animations.current?.handleHover(isHovering)
       : window.addEventListener("mousemove", handler);
 
     return () => {
       window.removeEventListener("mousemove", handler);
     };
-  }, [isHovering]);
+  }, [isHovering, cursor]);
 
   return (
     <cursorContext.Provider value={{ cursor: cursor, setIsHovering }}>
