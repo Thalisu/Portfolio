@@ -12,6 +12,7 @@ const toDefaultScale = (
       scale: (childs.length - i) / childs.length,
       duration: 0.25,
       overwrite: "auto",
+      ease: "power3.in",
     });
   });
   gsap.set("#turbulence", {

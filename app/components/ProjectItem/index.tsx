@@ -1,33 +1,38 @@
 import useProjectItemAnimation from "@/app/ui/home/animations/works/projectItem";
-import { Project } from "../../lib/types";
+import { CarouselHandlers, MouseEvents, Project } from "../../lib/types";
 import { inter } from "../../ui/fonts";
 import ClickableContainer from "../ClickableContainer";
 
 export default function ProjectItem({
   isLast,
   carousel,
+  handlers,
   ...project
 }: {
+  handlers: CarouselHandlers | undefined;
   carousel: HTMLLIElement | null;
   isLast: boolean;
 } & Project) {
   const { ref, projectAnimation } = useProjectItemAnimation();
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = (e: MouseEvents) => {
     projectAnimation?.isActive()
       ? projectAnimation?.play()
       : projectAnimation?.play(0);
+    handlers?.handleMouseEnter(e);
   };
   const handleMouseLeave = () => {
     projectAnimation?.reverse();
+    handlers?.handleMouseLeave();
   };
 
   return (
     <li
       className={`${isLast ? "border-y-[1px]" : "border-t-[1px]"} border-spacing`}
       ref={ref}
-      onMouseEnter={handleMouseEnter}
+      onMouseEnter={(e) => handleMouseEnter(e)}
       onMouseLeave={handleMouseLeave}
+      onMouseMove={(e) => handlers?.handleMouseMove(e)}
     >
       <ClickableContainer
         className="relative flex h-full w-full cursor-none justify-between px-4 py-4"

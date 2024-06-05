@@ -9,7 +9,7 @@ const scaleUp = (
 ) => {
   gsap.set(childs, { opacity: 0, overwrite: "auto" });
   gsap.set([childs[0], childs[1]], { opacity: 1, overwrite: "auto" });
-  gsap.to(childs, {
+  gsap.to([childs[1]], {
     scale: scale * 0.9,
     duration: 0.25,
     overwrite: "auto",

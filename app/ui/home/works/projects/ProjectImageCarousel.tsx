@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { Project } from "../lib/types";
+import { Project } from "../../../../lib/types";
 import { ForwardedRef, forwardRef } from "react";
+import { poppins } from "../../../fonts";
 
 export default forwardRef(function ProjectImageCarousel(
   props: { projects: Project[] },
@@ -12,7 +13,7 @@ export default forwardRef(function ProjectImageCarousel(
       ref={ref}
     >
       <ul
-        className={`carousel absolute left-1/2 aspect-video w-64 -translate-x-1/2 overflow-y-scroll rounded border-8 border-primary`}
+        className={`carousel absolute left-1/2 top-1/2 aspect-video w-64 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded border-8 border-primary`}
       >
         {props.projects.map((project) => {
           return (
@@ -28,6 +29,11 @@ export default forwardRef(function ProjectImageCarousel(
           );
         })}
       </ul>
+      <span
+        className={`${poppins.className} see absolute left-1/2 top-1/2 w-fit -translate-x-1/2 -translate-y-1/2 text-secondary`}
+      >
+        Ver
+      </span>
     </li>
   );
 });

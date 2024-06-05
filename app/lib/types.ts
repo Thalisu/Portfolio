@@ -35,7 +35,11 @@ export interface IsHovering {
 }
 
 export interface CursorAnimations {
-  onPageOpen: () => void;
+  handleHover: (isHovering: IsHovering) => void;
+  turbulence: gsap.core.Timeline | undefined;
+}
+
+export interface Cursor {
   toDefaultScale: () => void;
   scaleUp: (scale: number, animate: boolean) => void;
   handleMouseMove: (
@@ -43,13 +47,6 @@ export interface CursorAnimations {
     stagger?: number,
     duration?: number,
   ) => void;
-  handleHover: (isHovering: IsHovering) => void;
-  turbulence: gsap.core.Timeline | null;
-}
-
-export interface Cursor
-  extends Omit<CursorAnimations, "onPageOpen" | "turbulence" | "handleHover"> {
-  size: number;
 }
 
 export interface CursorContext {
@@ -80,3 +77,14 @@ export type QuickToElement =
   | HTMLElement[]
   | ChildNode
   | ChildNode[];
+
+export interface QuickToRef {
+  xTo: gsap.QuickToFunc;
+  yTo: gsap.QuickToFunc;
+}
+
+export interface CarouselHandlers {
+  handleMouseMove: (e: MouseEvents) => void;
+  handleMouseEnter: (e: MouseEvents) => void;
+  handleMouseLeave: () => void;
+}
