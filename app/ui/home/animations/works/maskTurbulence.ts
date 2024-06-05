@@ -18,10 +18,12 @@ const useMaskTurbulenceAnimation = () => {
           end: "center-=100 center-=100",
           scrub: true,
           onUpdate: (self) => {
-            self.progress >= 0.7
+            self.progress >= 0.4
               ? removeClassList(["pointer-events-none"], [ref.current])
-              : addClassList(["pointer-events-none", "maskbg"], [ref.current]);
-            self.progress >= 0.9 && removeClassList(["maskbg"], [ref.current]);
+              : addClassList(["pointer-events-none"], [ref.current]);
+            self.progress >= 0.9
+              ? removeClassList(["maskbg"], [ref.current])
+              : addClassList(["maskbg"], [ref.current]);
           },
         },
         r: 0,

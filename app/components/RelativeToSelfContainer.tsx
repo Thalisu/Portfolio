@@ -1,27 +1,45 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { RelativeToSelfContainer as PropType } from "../lib/types";
+import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { addClassList, removeClassList } from "../lib/utils";
 
-export default function RelativeToSelfContainer(props: PropType) {
+export default function RelativeToSelfContainer({
+  children,
+  className,
+}: {
+  className: string;
+  children: React.ReactNode;
+}) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [heigth, setHeight] = useState("auto");
-  useEffect(() => {
-    const container = ref.current as HTMLDivElement;
-    const containerContentHeight = container.offsetHeight;
-    setHeight(`${containerContentHeight + props.additionalPx}px`);
-  }, [props.additionalPx]);
 
   useGSAP(
-    () => {
+    (context, contextSafe) => {
+      if (!ref.current || !contextSafe) return;
       gsap.registerPlugin(ScrollTrigger);
-      const container = ref.current as HTMLDivElement;
 
-      gsap.from(container, {
+      gsap.to(ref.current, {
         scrollTrigger: {
-          trigger: container,
+          trigger: ref.current,
+          start: "bottom-=20px bottom",
+          end: "bottom center",
+          scrub: true,
+          markers: true,
+          onEnter: () => {
+            addClassList(["pointer-events-none"], [ref.current]);
+          },
+          onLeaveBack: () => {
+            removeClassList(["pointer-events-none"], [ref.current]);
+          },
+        },
+        scale: 0.8,
+        rotateZ: -10,
+      });
+
+      gsap.from(ref.current, {
+        scrollTrigger: {
+          trigger: ref.current,
           start: "20px bottom",
           end: "top 10%",
           scrub: true,
@@ -29,47 +47,13 @@ export default function RelativeToSelfContainer(props: PropType) {
         scale: 0.8,
         rotateZ: 10,
       });
-
-      gsap.to(container, {
-        scrollTrigger: {
-          trigger: container,
-          start: "bottom 30%",
-          end: "bottom ",
-          scrub: true,
-        },
-        boxShadow: "0px 17px 55px 0px rgba(3,3,2,0)",
-      });
-
-      gsap.to("#container", {
-        scrollTrigger: {
-          trigger: container,
-          start: "bottom-=100px center",
-          end: "bottom-=100px 30%",
-          scrub: true,
-        },
-        y: -260,
-        opacity: 0,
-      });
-
-      gsap.to(container, {
-        scrollTrigger: {
-          trigger: container,
-          start: "bottom 70%",
-          end: "bottom ",
-          scrub: true,
-        },
-      });
     },
     { scope: ref },
   );
 
   return (
-    <div
-      ref={ref}
-      className={`${props.classNames} rounded-t-[2rem]`}
-      style={{ height: heigth }}
-    >
-      {props.children}
+    <div ref={ref} className={className}>
+      {children}
     </div>
   );
 }
