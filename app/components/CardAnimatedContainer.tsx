@@ -25,7 +25,6 @@ export default function RelativeToSelfContainer({
           start: "bottom-=20px bottom",
           end: "bottom center",
           scrub: true,
-          markers: true,
           onEnter: () => {
             addClassList(["pointer-events-none"], [ref.current]);
           },
