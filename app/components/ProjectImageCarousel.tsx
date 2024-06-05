@@ -12,7 +12,7 @@ export default forwardRef(function ProjectImageCarousel(
       ref={ref}
     >
       <ul
-        className={`carousel absolute aspect-video w-64 overflow-y-scroll rounded border-8 border-primary`}
+        className={`carousel absolute left-1/2 aspect-video w-64 -translate-x-1/2 overflow-y-scroll rounded border-8 border-primary`}
       >
         {props.projects.map((project) => {
           return (
@@ -20,6 +20,7 @@ export default forwardRef(function ProjectImageCarousel(
               <Image
                 src={project.img}
                 alt={project.name}
+                loading="eager"
                 width={1920}
                 height={1080}
               ></Image>

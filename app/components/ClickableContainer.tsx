@@ -13,7 +13,6 @@ export default function ClickableContainer({
   scale = 2,
   center = true,
   animate = true,
-  text,
 }: {
   children: React.ReactNode;
   href: string;
@@ -34,26 +33,27 @@ export default function ClickableContainer({
     (context, contextSafe) => {
       if (!ref.current || !contextSafe || !cursor) return;
 
-      handlers.current.handleMouseEnter = contextSafe(() => {
-        if (!ref.current) return;
+      handlers.current.handleMouseEnter = () => {
         if (center) {
           cursor.scaleUp(scale, animate);
           setIsHovering({ state: true, center: getCenter(ref.current) });
         } else {
           cursor.scaleUp(scale, animate);
         }
-      });
+      };
 
-      handlers.current.handleMouseLeave = contextSafe((e: MouseEvents) => {
-        gsap.to(ref.current, {
-          x: 0,
-          y: 0,
-          overwrite: "auto",
-        });
+      handlers.current.handleMouseLeave = (e: MouseEvents) => {
+        contextSafe(() =>
+          gsap.to(ref.current, {
+            x: 0,
+            y: 0,
+            overwrite: "auto",
+          }),
+        )();
         cursor.toDefaultScale();
         cursor.handleMouseMove(e, 0);
         setIsHovering((prev) => ({ ...prev, state: false }));
-      });
+      };
     },
     { scope: ref, dependencies: [cursor] },
   );
