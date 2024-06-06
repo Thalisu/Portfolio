@@ -8,6 +8,7 @@ import Footer from "./ui/footer";
 export const metadata: Metadata = {
   title: "Thalison de melo - bem vindo",
   description: "thalison's portfolio",
+  icons: "/favicon.svg",
 };
 
 export default function RootLayout({
