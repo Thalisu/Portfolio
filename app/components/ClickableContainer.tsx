@@ -5,6 +5,7 @@ import { CursorContext, MouseEvents } from "../lib/types";
 import cursorContext from "@/app/context/cursor";
 import { useGSAP } from "@gsap/react";
 import { getCenter } from "../lib/utils";
+import Link from "next/link";
 
 export default function ClickableContainer({
   children,
@@ -13,6 +14,7 @@ export default function ClickableContainer({
   scale = 2,
   center = true,
   animate = true,
+  link = false,
 }: {
   children: React.ReactNode;
   href: string;
@@ -21,6 +23,7 @@ export default function ClickableContainer({
   center?: boolean;
   animate?: boolean;
   text?: string;
+  link?: boolean;
 }) {
   const { cursor, setIsHovering } = useContext(cursorContext) as CursorContext;
   const ref = useRef<HTMLAnchorElement>(null);
@@ -72,7 +75,11 @@ export default function ClickableContainer({
     };
   }, [cursor]);
 
-  return (
+  return link ? (
+    <Link href={href} className={className} ref={ref}>
+      {children}
+    </Link>
+  ) : (
     <a href={href} className={className} target="_blank" ref={ref}>
       {children}
     </a>
