@@ -4,7 +4,7 @@ import { poppins } from "./fonts";
 
 export default function Footer() {
   return (
-    <footer className="flex w-full justify-center bg-secondary px-4 py-10 pb-4">
+    <footer className="flex h-44 w-full justify-center bg-secondary px-4 py-10 pb-4">
       <div className="flex w-full max-w-5xl justify-evenly gap-20">
         <div className="flex flex-grow flex-col gap-1">
           <h3

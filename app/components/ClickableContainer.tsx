@@ -1,4 +1,4 @@
-"useClient";
+"use client";
 import gsap from "gsap";
 import React, { useContext, useLayoutEffect, useRef } from "react";
 import { CursorContext, MouseEvents } from "../lib/types";
@@ -69,9 +69,11 @@ export default function ClickableContainer({
 
     container.addEventListener("mouseenter", onMouseEnter);
     container.addEventListener("mouseleave", onMouseLeave);
+    container.addEventListener("click", onMouseLeave);
     return () => {
       container.removeEventListener("mouseenter", onMouseEnter);
       container.removeEventListener("mouseleave", onMouseLeave);
+      container.addEventListener("click", onMouseLeave);
     };
   }, [cursor]);
 

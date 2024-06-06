@@ -55,7 +55,7 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
   );
 
   useEffect(() => {
-    if (!cursor?.handleMouseMove) return
+    if (!cursor?.handleMouseMove) return;
     const handler = cursor.handleMouseMove;
     isHovering?.state
       ? animations.current?.handleHover(isHovering)
