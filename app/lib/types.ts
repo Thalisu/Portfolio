@@ -21,10 +21,11 @@ export interface RelativeToSelfContainer {
   classNames: string;
 }
 
-export interface ProjectsButtonFilter {
+export interface CreateButton {
   text: string;
   i: number;
   buttonAnimation: gsap.core.Tween[] | undefined;
+  to: string;
 }
 
 export type MouseEvents = MouseEvent | React.MouseEvent;

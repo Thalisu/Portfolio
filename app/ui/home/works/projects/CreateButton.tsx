@@ -1,8 +1,8 @@
-import { ProjectsButtonFilter as PropTypes } from "../lib/types";
-import { poppins } from "../ui/fonts";
-import ClickableContainer from "./ClickableContainer";
+import { CreateButton as PropTypes } from "../../../../lib/types";
+import { poppins } from "../../../fonts";
+import ClickableContainer from "../../../../components/ClickableContainer";
 
-export default function ProjectsButtonFilter(props: PropTypes) {
+export default function CreateButton(props: PropTypes) {
   const handleMouseEnter = (i: number) => {
     const animation = i === 0 ? 0 : 2;
     if (props.buttonAnimation) {
@@ -23,7 +23,8 @@ export default function ProjectsButtonFilter(props: PropTypes) {
   return (
     <ClickableContainer
       className="relative h-10 w-1/5 cursor-none overflow-clip rounded border border-primary bg-primary px-4 py-2"
-      href=""
+      href={props.to}
+      link={true}
     >
       <div
         className="pointer-events-none absolute -bottom-10 left-0 right-0 h-full bg-secondary"
