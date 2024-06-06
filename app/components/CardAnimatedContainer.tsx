@@ -34,6 +34,7 @@ export default function RelativeToSelfContainer({
         },
         scale: 0.8,
         rotateZ: -10,
+        y: -300,
       });
 
       gsap.from(ref.current, {

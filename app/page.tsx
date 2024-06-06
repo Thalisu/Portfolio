@@ -8,9 +8,9 @@ import RelativeToSelfContainer from "./components/CardAnimatedContainer";
 export default function Home() {
   return (
     <SmoothScroll>
-      <main>
+      <main className="relative">
         <HeroSection />
-        <RelativeToSelfContainer className="boxShadow flex h-fit w-full flex-col items-center gap-28 rounded-[2rem] bg-secondary pb-96 pt-[5%]">
+        <RelativeToSelfContainer className="boxShadow z-10 flex h-fit w-full flex-col items-center gap-28 rounded-[2rem] bg-secondary pb-96 pt-[5%] relative">
           <AboutMyWork />
           <Works />
         </RelativeToSelfContainer>
