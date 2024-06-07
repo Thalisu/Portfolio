@@ -26,6 +26,15 @@ export default forwardRef(function Banners(
         >
           {text}
         </p>
+        <div
+          id="loading"
+          className="animate-loading absolute bottom-1/3 inline-block aspect-square w-8 rounded border-4 border-[#e8e8e3]"
+        >
+          <div
+            id="loading"
+            className="animate-loadingInner w-full bg-primary align-top"
+          ></div>
+        </div>
       </div>
     </div>
   );
