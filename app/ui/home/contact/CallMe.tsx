@@ -4,7 +4,6 @@ import useCallMeAnimations from "./animations/callMe";
 
 export default function CallMe() {
   const { ref, animations } = useCallMeAnimations();
-  console.log(animations);
   const handleMouseEnter = () => {
     if (!animations) return;
     if (animations[0].isActive()) {
