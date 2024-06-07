@@ -8,8 +8,9 @@ const onPageOpen = () => {
 
   tl.set(banners, { yPercent: 0 })
     .set("#text", { opacity: 1 })
+    .set("#loading", { animationPlayState: "paused" }, "0")
+    .to("#loading", { opacity: 0, duration: 0.2 }, "0")
     .to(banners, { yPercent: 100, stagger: 0.3, ease: "power3.in" }, "0")
-    .to(["#text", "#loading"], { opacity: 0, duration: 0.2 }, "-=0.2")
-    .set("#loading", { animationPlayState: "paused" }, ">");
+    .to("#text", { opacity: 0, duration: 0.2 }, "-=0.2");
 };
 export default onPageOpen;
