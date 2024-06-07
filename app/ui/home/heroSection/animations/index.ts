@@ -35,7 +35,7 @@ const useHeroPageAnimations = () => {
       const splitMiddleText = getSplitText(middleNodes);
       const splitBottomText = getSplitText(bottomNodes);
 
-      const ttl = gsap.timeline({ paused: true, delay: 0.7 });
+      const ttl = gsap.timeline({ paused: true, delay: 1 });
 
       topTextAnimation(ttl, splitTopText);
       middleTextAnimation(ttl, splitMiddleText);
