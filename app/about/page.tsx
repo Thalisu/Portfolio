@@ -1,5 +1,5 @@
-import ClickableContainer from "./components/ClickableContainer";
-import { inter, poppins } from "./ui/fonts";
+import ClickableContainer from "../components/ClickableContainer";
+import { inter, poppins } from "../ui/fonts";
 
 export default function NotFound() {
   return (
@@ -10,7 +10,7 @@ export default function NotFound() {
         Ops... aconteceu algo de errado
       </h2>
       <p className={`${inter.className} text-xl text-primary`}>
-        Parece que a pagina que você quer acessar não existe
+        Parece que a pagina que você quer acessar ainda não foi adicionada
       </p>
       <ClickableContainer
         href="/"

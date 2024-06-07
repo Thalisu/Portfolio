@@ -5,7 +5,7 @@ import { CursorContext, MouseEvents } from "../lib/types";
 import cursorContext from "@/app/context/cursor";
 import { useGSAP } from "@gsap/react";
 import { getCenter } from "../lib/utils";
-import Link from "next/link";
+import CustomLink from "./CustomLink";
 
 export default function ClickableContainer({
   children,
@@ -26,7 +26,7 @@ export default function ClickableContainer({
   link?: boolean;
 }) {
   const { cursor, setIsHovering } = useContext(cursorContext) as CursorContext;
-  const ref = useRef<HTMLAnchorElement>(null);
+  const ref = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
   const handlers = useRef({
     handleMouseEnter: () => {},
     handleMouseLeave: (e: MouseEvents) => {},
@@ -70,17 +70,18 @@ export default function ClickableContainer({
     container.addEventListener("mouseenter", onMouseEnter);
     container.addEventListener("mouseleave", onMouseLeave);
     container.addEventListener("click", onMouseLeave);
+
     return () => {
       container.removeEventListener("mouseenter", onMouseEnter);
       container.removeEventListener("mouseleave", onMouseLeave);
-      container.addEventListener("click", onMouseLeave);
+      container.removeEventListener("click", onMouseLeave);
     };
   }, [cursor]);
 
   return link ? (
-    <Link href={href} className={className} ref={ref}>
+    <CustomLink href={href} ref={ref} className={className}>
       {children}
-    </Link>
+    </CustomLink>
   ) : (
     <a href={href} className={className} target="_blank" ref={ref}>
       {children}

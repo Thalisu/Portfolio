@@ -1,3 +1,4 @@
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import React from "react";
 
 export type SVGType = HTMLElement & SVGElement;
@@ -61,6 +62,11 @@ export interface CursorContext {
       };
     }>
   >;
+}
+export interface TransitionContext {
+  transition:
+    | ((href: string, router: AppRouterInstance, path: string) => void)
+    | undefined;
 }
 
 export interface Project {

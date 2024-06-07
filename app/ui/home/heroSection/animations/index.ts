@@ -35,7 +35,7 @@ const useHeroPageAnimations = () => {
       const splitMiddleText = getSplitText(middleNodes);
       const splitBottomText = getSplitText(bottomNodes);
 
-      const ttl = gsap.timeline({ paused: true });
+      const ttl = gsap.timeline({ paused: true, delay: 0.7 });
 
       topTextAnimation(ttl, splitTopText);
       middleTextAnimation(ttl, splitMiddleText);
@@ -47,7 +47,7 @@ const useHeroPageAnimations = () => {
 
       const rtl = gsap.timeline({ paused: true });
 
-      const delayToStart = 1.2;
+      const delayToStart = 2;
       arrowAnimation(rtl, rotatingScrollNodes[0], delayToStart);
       rotatingTextAnimation(rtl, rotatingScrollNodes[1], delayToStart);
       rtl.play();
@@ -74,7 +74,7 @@ const useHeroPageAnimations = () => {
             rtl.pause();
           },
           onLeave: () => {
-            rtl.restart().pause();
+            rtl.pause(1);
           },
         },
       });
