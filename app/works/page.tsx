@@ -1,24 +1,22 @@
-import ClickableContainer from "../components/ClickableContainer";
-import { inter, poppins } from "../ui/fonts";
+import Image from "next/image";
 
-export default function NotFound() {
+export default function Works() {
   return (
-    <main className="flex h-[calc(100svh-176px)] w-svw flex-col items-center justify-center gap-4">
-      <h2
-        className={`${poppins.className} text-5xl font-bold uppercase text-primary`}
-      >
-        Ops... aconteceu algo de errado
-      </h2>
-      <p className={`${inter.className} text-xl text-primary`}>
-        Parece que a pagina que você quer acessar ainda não foi adicionada
-      </p>
-      <ClickableContainer
-        href="/"
-        className="cursor-none border border-primary p-2 text-primary"
-        link={true}
-      >
-        voltar
-      </ClickableContainer>
-    </main>
+    <div className="relative flex w-full flex-col items-center gap-6 py-24">
+      <div className="relative right-[10%] aspect-video w-5/12 rounded border-4 border-spacing shadow-2xl">
+        <Image
+          src={"/imgs/movieStreamingHome.png"}
+          alt={"Movie Streaming App"}
+          fill={true}
+        ></Image>
+      </div>
+      <div className="relative left-[10%] aspect-video w-5/12 rounded border-4 border-spacing shadow-2xl">
+        <Image
+          src={"/imgs/portfolio.png"}
+          alt={"Portfolio"}
+          fill={true}
+        ></Image>
+      </div>
+    </div>
   );
 }
