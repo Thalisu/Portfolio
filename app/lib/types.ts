@@ -69,12 +69,20 @@ export interface TransitionContext {
     | undefined;
 }
 
+export const Pos = {
+  left: { left: "10%" },
+  right: { right: "10%" },
+};
+
+type PosType = (typeof Pos)[keyof typeof Pos];
+
 export interface Project {
   name: string;
   type: string;
   age: number;
   img: string;
   href: string;
+  pos?: PosType;
 }
 
 export type QuickToElement =
