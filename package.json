@@ -17,6 +17,7 @@
     "next": "14.2.3",
     "prettier-plugin-tailwindcss": "^0.6.1",
     "react": "^18",
+    "react-curtains": "^1.0.10",
     "react-dom": "^18",
     "split-text-js": "^1.0.3",
     "vivus": "^0.4.6"
