@@ -15,7 +15,7 @@ export default function Projects() {
     >
       <MaskEffect />
       <ProjectsList />
-      <Buttons />
+      {/* <Buttons /> */}
     </div>
   );
 }
