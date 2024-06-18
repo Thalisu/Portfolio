@@ -1,7 +1,13 @@
+"use client";
+import { Curtains } from "react-curtains";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <main className="flex w-full flex-col items-center">{children}</main>;
+  const onCurtainsError = (curtains: unknown) => {
+    console.log("curtain error", curtains);
+  };
+  return <Curtains onError={onCurtainsError}>{children}</Curtains>;
 }
