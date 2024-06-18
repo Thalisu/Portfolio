@@ -1,6 +1,6 @@
 "use client";
 
-import Buttons from "./Buttons";
+/* import Buttons from "./Buttons"; */
 import ProjectsList from "./ProjectsList";
 import MaskEffect from "@/app/components/MaskEffect";
 import useMaskTurbulenceAnimation from "../animations/maskTurbulence";
