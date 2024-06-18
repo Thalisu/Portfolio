@@ -24,7 +24,7 @@
   },
   "include": [
     "next-env.d.ts",
-    "split-dec.d.ts",
+    "declarations.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
