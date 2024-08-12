@@ -14,7 +14,7 @@ const skills = [
   {
     label: "CI / CD:",
     description:
-      "Desenvolver pipelines que automatizam a entrega, para garantir que as novas implementações seguem todas as melhores práticas da empresa e podem ir para a produção sem erros ou conflitos.",
+      "Desenvolver pipelines que automatizam a entrega, para assim, garantir que as novas implementações seguem todas as melhores práticas da empresa e podem ir para a produção sem erros ou conflitos.",
     bulletPoints: ["GitHub Actions", "GitLab", "Jenkins"],
   },
 ];
