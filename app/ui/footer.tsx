@@ -49,7 +49,7 @@ export default function Footer() {
             Home
           </ClickableContainer>
           <ClickableContainer
-            href="/about"
+            href="#about"
             className={`${poppins.className} relative w-fit cursor-none font-semibold text-secondary opacity-70`}
             scale={1.5}
             link={true}
