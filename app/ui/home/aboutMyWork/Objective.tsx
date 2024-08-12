@@ -20,14 +20,11 @@ export default function Objective() {
       <p className={`${inter.className} w-full max-w-xl text-lg`} id="p">
         Meu principal objetivo é entregar uma&nbsp;
         <span className="text-secondary underline">
-          experiencia excepcional
+          experiência excepcional ao cliente,
         </span>
-        &nbsp;nos meus produtos, não só um&nbsp;
-        <span className="text-secondary underline">trabalho bem feito</span>, e
-        sim, um trabalho feito para colocar&nbsp;
-        <span className="text-secondary underline">sua empresa</span>
-        &nbsp;em&nbsp;
-        <span className="text-secondary underline">destaque</span>.
+        &nbsp; não entrego somente um produto bem feito, eu entrego&nbsp;
+        <span className="text-secondary underline">o melhor</span>
+        &nbsp;que eu posso.
       </p>
       <Dev
         className="absolute bottom-7 right-10 top-0 mb-auto mt-auto w-28"
