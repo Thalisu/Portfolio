@@ -7,3 +7,5 @@ export { default as Dev } from "@/app/components/svgs/dev.svg";
 export { default as CircularMask } from "@/app/components/svgs/circularMask.svg";
 export { default as CursorSVG } from "@/app/components/svgs/cursor.svg";
 export { default as DiagonalArrow } from "@/app/components/svgs/diagonalArrow.svg";
+export { default as Copy } from "@/app/components/svgs/copy.svg";
+export { default as Done } from "@/app/components/svgs/done.svg";

@@ -1,6 +1,7 @@
 "use client";
-import ClickableContainer from "../components/ClickableContainer";
-import { poppins } from "./fonts";
+import ClickableContainer from "../../components/ClickableContainer";
+import { poppins } from "../fonts";
+import Gmail from "./Gmail";
 
 export default function Footer() {
   return (
@@ -12,13 +13,7 @@ export default function Footer() {
           >
             Contatos
           </h3>
-          <ClickableContainer
-            href="mailto:thalisondmcc@gmail.com"
-            className={`${poppins.className} relative w-fit cursor-none font-semibold text-secondary opacity-70`}
-            scale={1.5}
-          >
-            Gmail
-          </ClickableContainer>
+          <Gmail />
           <ClickableContainer
             href="https://www.linkedin.com/in/thalison-de-melo-correa-744958276/"
             className={`${poppins.className} relative w-fit cursor-none font-semibold text-secondary opacity-70`}
