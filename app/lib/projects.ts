@@ -16,7 +16,14 @@ const projects: Project[] = [
     href: "",
   },
   {
-    name: "Patientor",
+    name: "Login API with SQL Database",
+    type: "BackEnd",
+    age: 2024,
+    img: "/imgs/SQL.png",
+    href: "https://github.com/Thalisu/loginApi",
+  },
+  {
+    name: "Patients API with MongoDB",
     type: "BackEnd",
     age: 2023,
     img: "/imgs/CRUD.png",
