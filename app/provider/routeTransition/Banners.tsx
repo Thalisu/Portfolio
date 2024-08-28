@@ -5,7 +5,16 @@ export default forwardRef(function Banners(
   props: { path: string },
   ref: ForwardedRef<HTMLDivElement>,
 ) {
-  const text = props.path === "/" ? "home" : props.path.replace("/", "");
+  console.log(props.path);
+  const text =
+    props.path === "/"
+      ? "home"
+      : props.path.includes("/work")
+        ? props.path
+            .replaceAll("/", "")
+            .replace("work", "")
+            .replaceAll("%20", " ")
+        : props.path.replace("/", "");
   return (
     <div ref={ref}>
       <div
@@ -17,7 +26,7 @@ export default forwardRef(function Banners(
         className="fixed left-[33svw] top-0 z-50 flex min-h-svh w-[35svw] items-center justify-center bg-neutral-950"
       >
         <p
-          className={`${poppins.className} w-fit text-5xl font-bold uppercase text-secondary`}
+          className={`${poppins.className} w-fit text-center text-5xl font-bold uppercase text-secondary`}
           id="text"
         >
           {text}
