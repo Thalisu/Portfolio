@@ -1,6 +1,7 @@
-import { CreateButton as PropTypes } from "../../../../lib/types";
-import { poppins } from "../../../fonts";
-import ClickableContainer from "../../../../components/ClickableContainer";
+import { poppins } from "@/app/ui/fonts";
+import { CreateButton as PropTypes } from "@/app/lib/types";
+import ClickableContainer from "../ClickableContainer";
+import { DiagonalArrow } from "../svgs";
 
 export default function CreateButton(props: PropTypes) {
   const handleMouseEnter = (i: number) => {
@@ -22,21 +23,23 @@ export default function CreateButton(props: PropTypes) {
 
   return (
     <ClickableContainer
-      className="relative h-10 w-1/5 cursor-none overflow-clip rounded border border-primary bg-primary px-4 py-2"
+      className={`${props.className} relative overflow-hidden bg-primary`}
       href={props.to}
       link={true}
+      scale={3}
     >
       <div
         className="pointer-events-none absolute -bottom-10 left-0 right-0 h-full bg-secondary"
         id={`buttonCover${props.i}`}
       ></div>
       <span
-        className={`${poppins.className} absolute bottom-0 left-0 right-0 top-0 z-10 flex items-center justify-center font-semibold text-secondary mix-blend-difference`}
+        className={`${poppins.className} absolute bottom-0 left-0 right-0 top-0 z-10 flex items-center justify-center gap-1 text-secondary mix-blend-difference`}
         id={`buttonText${props.i}`}
         onMouseEnter={() => handleMouseEnter(props.i)}
         onMouseLeave={() => handleMouseLeave(props.i)}
       >
         {props.text}
+        <DiagonalArrow className="flex h-2 w-2 content-center items-center justify-center text-secondary mix-blend-difference" />
       </span>
     </ClickableContainer>
   );

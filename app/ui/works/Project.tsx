@@ -1,6 +1,8 @@
+"use client";
 import { Project } from "@/app/lib/types";
 import Image from "next/image";
-import { poppins } from "../fonts";
+import { inter, poppins } from "../fonts";
+import Buttons from "@/app/components/buttons/Buttons";
 
 export default function Projects(props: Project) {
   return (
@@ -16,6 +18,11 @@ export default function Projects(props: Project) {
       >
         <Image src={props.img} alt={props.name} fill={true}></Image>
       </div>
+      <Buttons
+        text="Ver site"
+        to={props.href}
+        className={`${inter.className} relative mt-9 h-10 w-32 cursor-none gap-1 rounded-lg border border-primary px-3 py-4 text-primary`}
+      />
     </div>
   );
 }

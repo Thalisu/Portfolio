@@ -27,6 +27,7 @@ export interface CreateButton {
   i: number;
   buttonAnimation: gsap.core.Tween[] | undefined;
   to: string;
+  className: string;
 }
 
 export type MouseEvents = MouseEvent | React.MouseEvent;
@@ -83,6 +84,7 @@ export interface Project {
   img: string;
   href: string;
   pos?: PosType;
+  desc?: string;
 }
 
 export type QuickToElement =
