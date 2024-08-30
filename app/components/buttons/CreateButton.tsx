@@ -23,9 +23,8 @@ export default function CreateButton(props: PropTypes) {
 
   return (
     <ClickableContainer
-      className={`${props.className} relative overflow-hidden bg-primary`}
+      className={`${props.className} relative flex overflow-hidden bg-primary`}
       href={props.to}
-      link={true}
       scale={3}
     >
       <div
