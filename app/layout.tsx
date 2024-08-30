@@ -3,7 +3,6 @@ import { NoiseFilter } from "./components/svgs";
 import "./globals.css";
 import CursorProvider from "./provider/Cursor";
 import SmoothScroll from "./components/SmoothScroll";
-import Footer from "./ui/footer";
 
 export const metadata: Metadata = {
   title: "Thalison de melo - bem vindo",
@@ -25,7 +24,6 @@ export default function RootLayout({
           <NoiseFilter className="pointer-events-none fixed h-0 w-0" />
           <CursorProvider>
             {children}
-            <Footer />
           </CursorProvider>
         </SmoothScroll>
       </body>

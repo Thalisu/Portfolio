@@ -2,8 +2,14 @@
 import React from "react";
 import TransitionProvider from "./provider/routeTransition";
 import { usePathname } from "next/navigation";
+import Footer from "./ui/footer";
 
 export default function Template({ children }: { children: React.ReactNode }) {
   const path = usePathname();
-  return <TransitionProvider path={path}>{children}</TransitionProvider>;
+  return (
+    <TransitionProvider path={path}>
+      {children}
+      <Footer />
+    </TransitionProvider>
+  );
 }
