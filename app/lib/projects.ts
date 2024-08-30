@@ -7,6 +7,7 @@ const projects: Project[] = [
     age: 2024,
     img: "/imgs/movieStreamingHome.png",
     href: "https://movie-streaming-discovery.vercel.app/",
+    desc: "Um projeto Full Stack para assistir filmes com autenticação de usuários, onde cada um pode gerenciar seus filmes favoritos e acompanhar o progresso do que estava assistindo. Utiliza banco de dados SQL para armazenar informações do usuário e dos filmes, além de consumir uma API externa para obter o catálogo de filmes. O frontend é otimizado para beleza e desempenho, com carrosséis interativos que destacam os filmes mais populares e em alta. A interface é intuitiva, garantindo uma experiência de usuário fluida e envolvente.",
   },
   {
     name: "Portfólio",
