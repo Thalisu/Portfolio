@@ -83,8 +83,10 @@ export interface Project {
   age: number;
   img: string;
   href: string;
+  desc: string;
+  techs: string[];
+  feats?: string[];
   pos?: PosType;
-  desc?: string;
 }
 
 export type QuickToElement =
