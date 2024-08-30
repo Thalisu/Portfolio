@@ -11,4 +11,4 @@ const handleHover = (isHovering: IsHovering, cursorSize: number) => {
   });
 };
 
-export default handleHover
+export default handleHover;

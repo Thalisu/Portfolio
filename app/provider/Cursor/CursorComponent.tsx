@@ -51,14 +51,6 @@ export default forwardRef(function CursorComponent(
         className="fixed rounded-full bg-primary opacity-0"
         id="circle"
       ></div>
-      <div
-        className="fixed rounded-full bg-primary opacity-0"
-        id="circle"
-      ></div>
-      <div
-        className="fixed rounded-full bg-primary opacity-0"
-        id="circle"
-      ></div>
     </div>
   );
 });
