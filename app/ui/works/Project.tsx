@@ -21,7 +21,7 @@ export default function Projects(props: Project) {
       <Buttons
         text="Ver site"
         to={props.href}
-        className={`${inter.className} relative mt-9 h-10 w-32 cursor-none gap-1 rounded-lg border border-primary px-3 py-4 text-primary`}
+        className={`${inter.className} mt-9 h-10 w-32 cursor-none gap-1 rounded-lg border border-primary px-3 py-4 text-primary`}
       />
     </div>
   );
