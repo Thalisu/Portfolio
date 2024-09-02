@@ -38,7 +38,7 @@ export default function ProjectItem({
     >
       <ClickableContainer
         className="relative flex h-full w-full cursor-none justify-between px-4 py-4"
-        href={`/work/${project.name}`}
+        href={`/work/${project.src}`}
         scale={4}
         center={false}
         animate={false}

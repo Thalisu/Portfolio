@@ -13,7 +13,7 @@ export default forwardRef(function Banners(
         ? props.path
             .replaceAll("/", "")
             .replace("work", "")
-            .replaceAll("%20", " ")
+            .replaceAll("-", " ")
         : props.path.replace("/", "");
   return (
     <div ref={ref}>
