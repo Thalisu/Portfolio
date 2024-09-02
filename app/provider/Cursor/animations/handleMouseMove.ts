@@ -10,7 +10,6 @@ const handleMouseMove = (
   gsap.to("#circle", {
     x: e.clientX - cursorSize / 2,
     y: e.clientY - cursorSize / 2,
-    opacity: 1,
     stagger,
     duration,
     ease: "power3.out",

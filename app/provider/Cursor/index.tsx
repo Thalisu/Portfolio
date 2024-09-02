@@ -26,6 +26,7 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
     (context, contextSafe) => {
       if (!ref.current || !contextSafe) return;
       const childs = Array.from(ref.current.childNodes);
+      childs.map((child: any) => child.classList.remove("opacity-0"));
       const cursorSize = 16;
 
       onPageOpen(childs, cursorSize);
@@ -33,7 +34,7 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
       animations.current = {
         turbulence: turbulence(childs[0]),
         handleHover: contextSafe((isHovering) =>
-          handleHover(isHovering, cursorSize),
+          handleHover(isHovering, cursorSize, childs),
         ),
       };
 
@@ -55,7 +56,7 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
   );
 
   useEffect(() => {
-    if (!cursor?.handleMouseMove) return;
+    if (!cursor?.handleMouseMove || !ref.current) return;
     const handler = cursor.handleMouseMove;
     isHovering?.state
       ? animations.current?.handleHover(isHovering)
