@@ -79,6 +79,7 @@ type PosType = (typeof Pos)[keyof typeof Pos];
 
 export interface Project {
   name: string;
+  src: string;
   type: string;
   age: number;
   img: string;

@@ -3,6 +3,7 @@ import { Project } from "@/app/lib/types";
 const projects: Project[] = [
   {
     name: "Movie Streaming App",
+    src: "Movie-Streaming",
     type: "FrontEnd",
     age: 2024,
     img: "/imgs/movieStreaming/home.png",
@@ -16,15 +17,17 @@ const projects: Project[] = [
   },
   {
     name: "Portfólio",
+    src: "Portfolio",
     type: "FrontEnd",
     age: 2024,
     img: "/imgs/portfolio.png",
     href: "https://thalisondmc.vercel.app/",
-    desc: "portfólio de desenvolvedor Full Stack, criado com Next.js e TypeScript, focado em performance e fluidez. O projeto utiliza animações em GSAP, Lenis Scroll para uma navegação suave, e Vivus para animar SVGs, resultando em uma experiência visual envolvente. O código é cuidadosamente otimizado para garantir que as animações e interações não comprometam o desempenho da página. O design é moderno, destacando habilidades técnicas e projetos de forma dinâmica e impactante.",
+    desc: "Meu portfólio de desenvolvedor Full Stack, criado com Next.js e TypeScript, focado em performance e fluidez. O projeto utiliza animações em GSAP, Lenis Scroll para uma navegação suave, e Vivus para animar SVGs, resultando em uma experiência visual envolvente. O código é cuidadosamente otimizado para garantir que as animações e interações não comprometam o desempenho da página. O design é moderno, destacando habilidades técnicas e projetos de forma dinâmica e impactante.",
     techs: ["Next", "Typescript", "GSAP"],
   },
   {
     name: "Login API with SQL Database",
+    src: "Login-Api",
     type: "BackEnd",
     age: 2024,
     img: "/imgs/SQL.png",
@@ -34,6 +37,7 @@ const projects: Project[] = [
   },
   {
     name: "Patients API with MongoDB",
+    src: "Patients-Api",
     type: "BackEnd",
     age: 2023,
     img: "/imgs/CRUD.png",
