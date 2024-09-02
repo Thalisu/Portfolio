@@ -10,7 +10,7 @@ export default function Description({
   age: number;
 }) {
   return (
-    <div className="flex w-full max-w-5xl content-between justify-between gap-6 px-2 text-primary">
+    <div className="flex w-full max-w-5xl content-between justify-between gap-6 px-2 pb-24 text-primary">
       <div className="flex flex-grow flex-wrap gap-6">
         <div className="h-fit">
           <h2 className={`${poppins.className} font-bold opacity-80`}>
