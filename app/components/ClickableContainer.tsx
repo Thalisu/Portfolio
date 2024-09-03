@@ -15,6 +15,7 @@ export default function ClickableContainer({
   center = true,
   animate = true,
   link = false,
+  target = "_blank",
 }: {
   children: React.ReactNode;
   href: string;
@@ -24,6 +25,7 @@ export default function ClickableContainer({
   animate?: boolean;
   text?: string;
   link?: boolean;
+  target?: string;
 }) {
   const { cursor, setIsHovering } = useContext(cursorContext) as CursorContext;
   const ref = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
@@ -83,7 +85,7 @@ export default function ClickableContainer({
       {children}
     </CustomLink>
   ) : (
-    <a href={href} className={className} target="_blank" ref={ref}>
+    <a href={href} className={className} target={target} ref={ref}>
       {children}
     </a>
   );

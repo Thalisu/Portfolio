@@ -42,6 +42,7 @@ export default function ProjectItem({
         scale={4}
         center={false}
         animate={false}
+        target="_self"
       >
         <div className="absolute bottom-1/2 left-0 right-0 bg-[#393632] opacity-25"></div>
         <div className="absolute left-0 right-0 top-1/2 bg-[#393632] opacity-25"></div>
