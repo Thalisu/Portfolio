@@ -23,7 +23,7 @@
   }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 440px), (max-height: 560px) {
   html {
     font-size: 10px;
   }
