@@ -6,7 +6,7 @@ import Buttons from "@/app/components/buttons/Buttons";
 
 export default function Projects(props: Project) {
   return (
-    <div className="flex w-svw flex-col items-center px-2">
+    <div className="flex w-full flex-col items-center px-2">
       <h1
         className={`${poppins.className} translate-y-1 text-end text-5xl font-bold uppercase text-black/90`}
       >

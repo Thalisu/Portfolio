@@ -11,7 +11,7 @@ export default function HeroSection() {
 
   return (
     <div
-      className="relative flex h-svh w-svw flex-col items-center justify-center"
+      className="relative flex h-svh w-full flex-col items-center justify-center"
       ref={ref}
     >
       <div className="relative flex h-fit w-fit flex-col gap-12 opacity-0">

@@ -8,8 +8,14 @@
   }
 }
 
+@media (max-width: 530px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+
 body {
-  width: 100svw;
   background-color: var(--background);
 }
 
@@ -21,7 +27,7 @@ body {
 
 .bannerGrid {
   display: grid;
-  grid-template-columns: 33svw 34svw 33svw;
+  grid-template-columns: 33% 34% 33%;
 }
 
 .clip {

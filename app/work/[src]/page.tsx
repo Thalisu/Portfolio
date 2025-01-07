@@ -7,7 +7,7 @@ export default function Work({ params }: { params: { src: string } }) {
   const work = projects.find((project) => params.src === project.src);
   if (!work) return null;
   return (
-    <main className="relative box-border flex w-svw flex-col items-center gap-8 pt-24">
+    <main className="relative box-border flex w-full flex-col items-center gap-8 pt-24">
       <Project {...work} />
       <Description desc={work.desc} age={work.age} techs={work.techs} />
       {work.feats && <Feats feats={work.feats} />}

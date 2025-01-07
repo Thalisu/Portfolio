@@ -4,7 +4,7 @@ import Project from "../ui/works/Project";
 
 export default function Works() {
   return (
-    <main className="relative flex w-svw flex-col items-center gap-6 py-24">
+    <main className="relative flex w-full flex-col items-center gap-6 py-24">
       {projects.map((project, i) => (
         <Project
           {...project}

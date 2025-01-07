@@ -8,7 +8,7 @@ export default forwardRef(function CursorComponent(
   return (
     <div
       ref={ref}
-      className="pointer-events-none fixed z-[9999999] h-svh w-svw bg-transparent mix-blend-difference"
+      className="pointer-events-none fixed z-[9999999] h-svh w-full bg-transparent mix-blend-difference"
     >
       <CursorSVG className="fixed h-4 w-4 opacity-0" id="circle"></CursorSVG>
       <div
