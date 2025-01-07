@@ -21,6 +21,7 @@ export const setSvgAnimation = (
     console.log("not a SVGPathElement");
   }
 };
+
 export const isMobile = () => {
   return /Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(
     navigator.userAgent,
