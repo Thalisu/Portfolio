@@ -2,6 +2,16 @@ import { Project } from "@/app/lib/types";
 
 const projects: Project[] = [
   {
+    name: "Vacancy Finder",
+    src: "Vacancy-Finder",
+    type: "Fullstack",
+    age: 2025,
+    img: "/imgs/vacancy-finder.png",
+    href: "https://github.com/Thalisu/vacancy-finder",
+    desc: "Procurando várias vagas com diferentes pesquisas? nesse app você pode pesquisar tudo em um só local e conseguir todos os resultados na mesma página, em ordem da vaga mais recente para a mais antiga.",
+    techs: ["Next", "Typescript", "Python", "FastAPI"],
+  },
+  {
     name: "Movie Streaming App",
     src: "Movie-Streaming",
     type: "FrontEnd",
