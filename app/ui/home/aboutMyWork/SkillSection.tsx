@@ -7,7 +7,7 @@ export default function SkillSection(props: PropTypes) {
   const container = useSkillSectionAnimation(props.z);
 
   const style = {
-    top: 163 + props.z * 70,
+    top: 10.1875 + props.z * 4.375 + "rem",
     zIndex: props.z,
   };
 
@@ -30,7 +30,7 @@ export default function SkillSection(props: PropTypes) {
               props.bulletPoints.length === 3 && i === 1 && "border-y-[1px]";
             return (
               <h4
-                className={`${poppins.className} py-4 text-2xl font-bold uppercase ${border} border-spacing`}
+                className={`${poppins.className} ${i !== 0 ? "py-4" : "pb-4"} text-2xl font-bold uppercase ${border} border-spacing`}
                 key={crypto.randomUUID()}
               >
                 {point}

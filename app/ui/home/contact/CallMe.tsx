@@ -31,7 +31,7 @@ export default function CallMe() {
     >
       <ClickableContainer
         href="https://wa.me/93988056885"
-        className={`${poppins.className} cursor-none text-9xl font-bold uppercase text-primary`}
+        className={`${poppins.className} bigTitle cursor-none text-9xl font-bold uppercase text-primary`}
         center={false}
         scale={4}
       >
