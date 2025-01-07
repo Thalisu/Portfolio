@@ -70,12 +70,16 @@ export default function ClickableContainer({
     const container = ref.current;
 
     container.addEventListener("mouseenter", onMouseEnter);
+    container.addEventListener("touchstart", onMouseEnter);
     container.addEventListener("mouseleave", onMouseLeave);
+    container.addEventListener("touchcancel", onMouseLeave);
     container.addEventListener("click", onMouseLeave);
 
     return () => {
       container.removeEventListener("mouseenter", onMouseEnter);
+      container.removeEventListener("touchstart", onMouseEnter);
       container.removeEventListener("mouseleave", onMouseLeave);
+      container.removeEventListener("touchcancel", onMouseLeave);
       container.removeEventListener("click", onMouseLeave);
     };
   }, [cursor]);

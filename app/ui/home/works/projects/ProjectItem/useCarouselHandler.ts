@@ -35,25 +35,43 @@ const useCarouselHandler = () => {
       setHandlers({
         handleMouseMove: (e: MouseEvents) => {
           const center = getCenter(ref.current);
+          let clientX = 0;
+          let clientY = 0;
+          if ("clientX" in e && "clientY" in e) {
+            clientX = e.clientX;
+            clientY = e.clientY;
+          } else if ("touches" in e) {
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+          }
           contextSafe(() => {
-            carouselMouseMove.current?.xTo(e.clientX - center.x);
-            carouselMouseMove.current?.yTo(e.clientY - center.y);
-            seeMouseMove.current?.xTo(e.clientX - center.x);
-            seeMouseMove.current?.yTo(e.clientY - center.y);
+            carouselMouseMove.current?.xTo(clientX - center.x);
+            carouselMouseMove.current?.yTo(clientY - center.y);
+            seeMouseMove.current?.xTo(clientX - center.x);
+            seeMouseMove.current?.yTo(clientY - center.y);
           })();
         },
         handleMouseEnter: (e: MouseEvents, project) => {
           const center = getCenter(ref.current);
+          let clientX = 0;
+          let clientY = 0;
+          if ("clientX" in e && "clientY" in e) {
+            clientX = e.clientX;
+            clientY = e.clientY;
+          } else if ("touches" in e) {
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+          }
           contextSafe(() => {
             if (!ref.current) return;
             gsap.set(".carousel", {
-              x: e.clientX - center.x,
-              y: e.clientY - center.y,
+              x: clientX - center.x,
+              y: clientY - center.y,
               opacity: 1,
             });
             gsap.set(".see", {
-              x: e.clientX - center.x,
-              y: e.clientY - center.y,
+              x: clientX - center.x,
+              y: clientY - center.y,
             });
             gsap.to(".see", {
               opacity: 1,
