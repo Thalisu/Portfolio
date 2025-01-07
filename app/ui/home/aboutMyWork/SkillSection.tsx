@@ -13,7 +13,7 @@ export default function SkillSection(props: PropTypes) {
 
   return (
     <div
-      className={`sticky flex flex-col gap-3 border-t-[1px] border-spacing bg-secondary py-4`}
+      className={`sticky flex flex-col gap-3 border-t-[1px] border-spacing bg-secondary px-4 py-4`}
       style={style}
       ref={container}
     >
