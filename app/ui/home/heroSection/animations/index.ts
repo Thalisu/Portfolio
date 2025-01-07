@@ -53,6 +53,9 @@ const useHeroPageAnimations = () => {
       rtl.play();
 
       gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.config({
+        ignoreMobileResize: true,
+      });
 
       const stl = gsap.timeline({
         scrollTrigger: {

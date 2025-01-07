@@ -18,6 +18,9 @@ export default function RelativeToSelfContainer({
     (context, contextSafe) => {
       if (!ref.current || !contextSafe) return;
       gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.config({
+        ignoreMobileResize: true,
+      });
 
       gsap.to(ref.current, {
         scrollTrigger: {

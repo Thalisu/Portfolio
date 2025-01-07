@@ -11,6 +11,9 @@ const useObjectiveAnimation = () => {
   useGSAP(
     () => {
       gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.config({
+        ignoreMobileResize: true,
+      });
       const container = ref.current as HTMLDivElement;
 
       const svg = new Vivus("devSvg");
@@ -44,7 +47,7 @@ const useObjectiveAnimation = () => {
           fill: "rgb(174 174 157)",
         });
     },
-    { scope: ref }
+    { scope: ref },
   );
 
   return ref;

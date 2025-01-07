@@ -11,6 +11,9 @@ const useMaskTurbulenceAnimation = () => {
       if (!ref.current) return;
       gsap.registerPlugin(ScrollTrigger);
 
+      ScrollTrigger.config({
+        ignoreMobileResize: true,
+      });
       gsap.from(".mask", {
         scrollTrigger: {
           trigger: ref.current,

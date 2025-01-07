@@ -9,6 +9,9 @@ const useSkillSectionAnimation = (z: number) => {
   useGSAP(
     () => {
       gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.config({
+        ignoreMobileResize: true,
+      });
       const container = ref.current as HTMLDivElement;
 
       const tl = gsap.timeline({
@@ -25,7 +28,7 @@ const useSkillSectionAnimation = (z: number) => {
         y: 50,
       });
     },
-    { scope: ref }
+    { scope: ref },
   );
 
   return ref;

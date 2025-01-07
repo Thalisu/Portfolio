@@ -9,6 +9,9 @@ const useWorksHeaderAnimation = () => {
   useGSAP(
     () => {
       gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.config({
+        ignoreMobileResize: true,
+      });
       const header = getSplitText([ref.current as HTMLDivElement]);
 
       gsap.from(header, {
@@ -25,7 +28,7 @@ const useWorksHeaderAnimation = () => {
         stagger: 0.02,
       });
     },
-    { scope: ref }
+    { scope: ref },
   );
   return ref;
 };

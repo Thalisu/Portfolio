@@ -11,6 +11,7 @@ const onPageOpen = () => {
     .set("#loading", { animationPlayState: "paused" }, "0")
     .to("#loading", { opacity: 0, duration: 0.2 }, "0")
     .to(banners, { yPercent: 100, stagger: 0.3, ease: "power3.in" }, "0")
-    .to("#text", { opacity: 0, duration: 0.2 }, "-=0.2");
+    .to("#text", { opacity: 0, duration: 0.2 }, "-=0.2")
+    .set(banners, { yPercent: 200, stagger: 0.3, ease: "power3.in" }, ">");
 };
 export default onPageOpen;
