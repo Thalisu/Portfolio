@@ -48,6 +48,7 @@ export default function Gmail() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
+      onTouchEnd={handleClick}
       ref={ref}
     >
       <div className="baseText absolute bottom-0 left-0 h-full">

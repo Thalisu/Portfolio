@@ -23,7 +23,12 @@ export default forwardRef(function CustomLink(
   };
 
   return (
-    <button className={props.className} ref={ref} onClick={handleClick}>
+    <button
+      className={props.className}
+      ref={ref}
+      onClick={handleClick}
+      onTouchEnd={handleClick}
+    >
       {props.children}
     </button>
   );
