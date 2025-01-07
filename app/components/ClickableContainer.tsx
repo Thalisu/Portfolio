@@ -73,6 +73,7 @@ export default function ClickableContainer({
     container.addEventListener("touchstart", onMouseEnter);
     container.addEventListener("mouseleave", onMouseLeave);
     container.addEventListener("touchcancel", onMouseLeave);
+    container.addEventListener("touchend", onMouseLeave);
     container.addEventListener("click", onMouseLeave);
 
     return () => {
@@ -80,6 +81,7 @@ export default function ClickableContainer({
       container.removeEventListener("touchstart", onMouseEnter);
       container.removeEventListener("mouseleave", onMouseLeave);
       container.removeEventListener("touchcancel", onMouseLeave);
+      container.removeEventListener("touchend", onMouseLeave);
       container.removeEventListener("click", onMouseLeave);
     };
   }, [cursor]);
