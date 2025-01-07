@@ -27,6 +27,7 @@ export default function CallMe() {
       className="relative"
       ref={ref}
       onMouseEnter={handleMouseEnter}
+      onTouchStart={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <ClickableContainer

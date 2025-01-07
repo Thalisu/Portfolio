@@ -27,7 +27,6 @@ export default forwardRef(function CustomLink(
       className={props.className}
       ref={ref}
       onClick={handleClick}
-      onTouchEnd={handleClick}
     >
       {props.children}
     </button>

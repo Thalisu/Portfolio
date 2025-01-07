@@ -4,7 +4,7 @@ import React, { useContext, useLayoutEffect, useRef } from "react";
 import { CursorContext, MouseEvents } from "../lib/types";
 import cursorContext from "@/app/context/cursor";
 import { useGSAP } from "@gsap/react";
-import { getCenter } from "../lib/utils";
+import { getCenter, isMobile } from "../lib/utils";
 import CustomLink from "./CustomLink";
 
 export default function ClickableContainer({
@@ -65,23 +65,18 @@ export default function ClickableContainer({
 
   useLayoutEffect(() => {
     if (!ref.current) return;
+    if (isMobile()) return;
     const onMouseLeave = handlers.current.handleMouseLeave;
     const onMouseEnter = handlers.current.handleMouseEnter;
     const container = ref.current;
 
     container.addEventListener("mouseenter", onMouseEnter);
-    container.addEventListener("touchstart", onMouseEnter);
     container.addEventListener("mouseleave", onMouseLeave);
-    container.addEventListener("touchcancel", onMouseLeave);
-    container.addEventListener("touchend", onMouseLeave);
     container.addEventListener("click", onMouseLeave);
 
     return () => {
       container.removeEventListener("mouseenter", onMouseEnter);
-      container.removeEventListener("touchstart", onMouseEnter);
       container.removeEventListener("mouseleave", onMouseLeave);
-      container.removeEventListener("touchcancel", onMouseLeave);
-      container.removeEventListener("touchend", onMouseLeave);
       container.removeEventListener("click", onMouseLeave);
     };
   }, [cursor]);

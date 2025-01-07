@@ -30,7 +30,9 @@ export interface CreateButton {
   className: string;
 }
 
-export type MouseEvents = MouseEvent | React.MouseEvent | TouchEvent;
+export type MouseEvents =
+  | MouseEvent
+  | React.MouseEvent
 
 export interface IsHovering {
   state: boolean;

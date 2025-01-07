@@ -15,6 +15,7 @@ import toDefaultScale from "./animations/toDefaultScale";
 import scaleUp from "./animations/scaleUp";
 import handleMouseMove from "./animations/handleMouseMove";
 import handleHover from "./animations/handleHover";
+import { isMobile } from "@/app/lib/utils";
 
 const CursorProvider = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -57,17 +58,20 @@ const CursorProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (!cursor?.handleMouseMove || !ref.current) return;
+    if (isMobile()) {
+      ref.current.style.display = "none";
+      return;
+    }
+
     const handler = cursor.handleMouseMove;
     if (isHovering?.state) {
       animations.current?.handleHover(isHovering);
     } else {
       window.addEventListener("mousemove", handler);
-      window.addEventListener("touchmove", handler);
     }
 
     return () => {
       window.removeEventListener("mousemove", handler);
-      window.removeEventListener("touchmove", handler);
     };
   }, [isHovering, cursor]);
 

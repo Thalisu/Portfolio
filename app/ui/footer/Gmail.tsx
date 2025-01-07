@@ -42,13 +42,14 @@ export default function Gmail() {
       }
     })();
   };
+
   return (
     <button
       className={`${poppins.className} relative h-6 w-full cursor-none overflow-y-clip font-semibold text-secondary opacity-70`}
       onMouseEnter={handleMouseEnter}
+      onTouchStart={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
-      onTouchEnd={handleClick}
       ref={ref}
     >
       <div className="baseText absolute bottom-0 left-0 h-full">

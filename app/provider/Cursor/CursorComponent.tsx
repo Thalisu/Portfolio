@@ -1,3 +1,4 @@
+"use client";
 import { CursorSVG } from "@/app/components/svgs";
 import { ForwardedRef, forwardRef } from "react";
 
