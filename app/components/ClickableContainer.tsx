@@ -6,6 +6,7 @@ import cursorContext from "@/app/context/cursor";
 import { useGSAP } from "@gsap/react";
 import { getCenter, isMobile } from "../lib/utils";
 import CustomLink from "./CustomLink";
+import { Link } from "@/i18n/routing";
 
 export default function ClickableContainer({
   children,
@@ -86,8 +87,8 @@ export default function ClickableContainer({
       {children}
     </CustomLink>
   ) : (
-    <a href={href} className={className} target={target} ref={ref}>
+    <Link href={href} className={className} target={target} ref={ref}>
       {children}
-    </a>
+    </Link>
   );
 }

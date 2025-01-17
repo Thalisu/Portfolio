@@ -1,9 +1,11 @@
 import ClickableContainer from "@/app/components/ClickableContainer";
 import { poppins } from "../../fonts";
 import useCallMeAnimations from "./animations/callMe";
+import { useTranslations } from "next-intl";
 
 export default function CallMe() {
   const { ref, animations } = useCallMeAnimations();
+  const t = useTranslations("contact");
   const handleMouseEnter = () => {
     if (!animations) return;
     if (animations[0].isActive()) {
@@ -36,7 +38,7 @@ export default function CallMe() {
         center={false}
         scale={4}
       >
-        Me chame!
+        {t("button")}
       </ClickableContainer>
       <div className="under absolute bottom-2 left-0 right-full h-1 bg-secondary opacity-70"></div>
     </div>

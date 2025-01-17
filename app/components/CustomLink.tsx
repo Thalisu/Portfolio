@@ -2,8 +2,8 @@
 import React, { ForwardedRef, forwardRef, useContext, useEffect } from "react";
 import transitionContext from "../context/routeTransition";
 import { TransitionContext } from "../lib/types";
-import { useRouter } from "next/navigation";
-import { usePathname } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
+import { usePathname } from "@/i18n/routing";
 
 export default forwardRef(function CustomLink(
   props: { href: string; className: string; children: React.ReactNode },
@@ -23,11 +23,7 @@ export default forwardRef(function CustomLink(
   };
 
   return (
-    <button
-      className={props.className}
-      ref={ref}
-      onClick={handleClick}
-    >
+    <button className={props.className} ref={ref} onClick={handleClick}>
       {props.children}
     </button>
   );

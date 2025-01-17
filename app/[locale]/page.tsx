@@ -1,8 +1,8 @@
-import HeroSection from "./ui/home/heroSection";
-import AboutMyWork from "./ui/home/aboutMyWork";
-import Works from "./ui/home/works";
-import Contact from "./ui/home/contact";
-import CardAnimatedContainer from "./components/CardAnimatedContainer";
+import HeroSection from "@/app/ui/home/heroSection";
+import AboutMyWork from "@/app/ui/home/aboutMyWork";
+import Works from "@/app/ui/home/works";
+import Contact from "@/app/ui/home/contact";
+import CardAnimatedContainer from "@/app/components/CardAnimatedContainer";
 
 export default function Home() {
   return (

@@ -83,7 +83,7 @@ export interface Project {
   name: string;
   src: string;
   type: string;
-  age: number;
+  age: string;
   img: string;
   href: string;
   desc: string;

@@ -2,9 +2,11 @@
 import { Dev } from "@/app/components/svgs";
 import { inter, poppins } from "../../fonts";
 import useObjectiveAnimation from "./animations/objective";
+import { useTranslations } from "next-intl";
 
 export default function Objective() {
   const container = useObjectiveAnimation();
+  const t = useTranslations("objective");
 
   return (
     <div
@@ -15,17 +17,15 @@ export default function Objective() {
         className={`${poppins.className} clip whitespace-nowrap text-5xl font-bold uppercase text-secondary`}
         id="h3"
       >
-        O que eu posso fazer
+        {t("whatIDo")}
       </h2>
       <div className="relative flex justify-between">
         <p className={`${inter.className} mr-4 max-w-xl grow text-lg`} id="p">
-          Meu principal objetivo é entregar uma&nbsp;
-          <span className="text-secondary underline">
-            experiência excepcional ao cliente,
-          </span>
-          &nbsp; não entrego somente um produto bem feito, eu entrego&nbsp;
-          <span className="text-secondary underline">o melhor</span>
-          &nbsp;que eu posso.
+          {t("myObjective1")}&nbsp;
+          <span className="text-secondary underline">{t("myObjective2")}</span>
+          &nbsp; {t("myObjective3")}&nbsp;
+          <span className="text-secondary underline">{t("myObjective4")}</span>
+          &nbsp;{t("myObjective5")}
         </p>
         <Dev className="relative bottom-0 w-28 min-w-16" id="devSvg" />
       </div>

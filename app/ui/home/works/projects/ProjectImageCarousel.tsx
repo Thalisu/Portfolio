@@ -3,11 +3,13 @@ import { Project } from "../../../../lib/types";
 import { ForwardedRef, forwardRef } from "react";
 import { poppins } from "../../../fonts";
 import { DiagonalArrow } from "@/app/components/svgs";
+import { useTranslations } from "next-intl";
 
 export default forwardRef(function ProjectImageCarousel(
   props: { projects: Project[] },
   ref: ForwardedRef<HTMLLIElement>,
 ) {
+  const t = useTranslations("works");
   return (
     <li
       className="pointer-events-none absolute left-0 top-0 h-full w-full"
@@ -37,7 +39,7 @@ export default forwardRef(function ProjectImageCarousel(
       <span
         className={`${poppins.className} see absolute left-1/2 top-1/2 flex aspect-square w-[68px] -translate-x-1/2 -translate-y-1/2 items-center justify-evenly rounded-full bg-secondary text-secondary`}
       >
-        Ver
+        {t("view")}
         <DiagonalArrow className="relative -left-1 -top-1 aspect-square w-2 text-secondary" />
       </span>
     </li>

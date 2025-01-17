@@ -7,7 +7,7 @@ export default function Description({
 }: {
   desc: string;
   techs: string[];
-  age: number;
+  age: string;
 }) {
   return (
     <div className="flex w-full max-w-5xl content-between justify-between gap-6 px-2 pb-24 text-primary">

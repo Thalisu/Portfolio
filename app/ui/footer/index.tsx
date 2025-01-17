@@ -2,8 +2,10 @@
 import ClickableContainer from "../../components/ClickableContainer";
 import { poppins } from "../fonts";
 import Gmail from "./Gmail";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("footer");
   return (
     <footer className="flex h-44 w-full justify-center bg-secondary px-4 py-10 pb-4">
       <div className="flex w-full max-w-5xl justify-evenly gap-20">
@@ -11,7 +13,7 @@ export default function Footer() {
           <h3
             className={`${poppins.className} relative mb-1 text-xl font-bold text-secondary after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-primary`}
           >
-            Contatos
+            {t("contact")}
           </h3>
           <Gmail />
           <ClickableContainer
@@ -33,7 +35,7 @@ export default function Footer() {
           <h3
             className={`${poppins.className} relative mb-1 text-xl font-bold text-secondary after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-primary`}
           >
-            Navegação
+            {t("navigation")}
           </h3>
           <ClickableContainer
             href="/"
@@ -49,7 +51,7 @@ export default function Footer() {
             scale={1.5}
             link={true}
           >
-            Sobre
+            {t("about")}
           </ClickableContainer>
           <ClickableContainer
             href="/works"
@@ -57,7 +59,7 @@ export default function Footer() {
             scale={1.5}
             link={true}
           >
-            Projetos
+            {t("projects")}
           </ClickableContainer>
         </div>
       </div>

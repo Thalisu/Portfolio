@@ -7,11 +7,13 @@ export default forwardRef(function Banners(
 ) {
   console.log(props.path);
   const text =
-    props.path === "/"
+    props.path === "/en" || props.path === "/pt-BR"
       ? "home"
       : props.path.includes("/work")
         ? props.path
             .replaceAll("/", "")
+            .replaceAll("en", "")
+            .replaceAll("pt-BR", "")
             .replace("work", "")
             .replaceAll("-", " ")
         : props.path.replace("/", "");

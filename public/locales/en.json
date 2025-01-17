@@ -1,0 +1,101 @@
+{
+  "heroSection": {
+    "hi": "hi!",
+    "iAm": "I am",
+    "a": ", a"
+  },
+  "objective": {
+    "whatIDo": "What I can do",
+    "myObjective1": "My main goal is to deliver an",
+    "myObjective2": "exceptional customer experience",
+    "myObjective3": "I don't just deliver a well-made product, I deliver",
+    "myObjective4": "the best",
+    "myObjective5": "I can"
+  },
+  "skills": {
+    "skill-0": {
+      "label": "Front-end:",
+      "description": "Develop your interface in a unique, customizable, performant, and scalable way, focusing on a memorable customer experience.",
+      "bulletPoints": "Typescript,React,Next"
+    },
+    "skill-1": {
+      "label": "Back-end:",
+      "description": "Develop REST and RESTful APIs for interaction with noSQL or SQL databases.",
+      "bulletPoints": "MongoDB,PostgreSQL,GraphQl"
+    },
+    "skill-2": {
+      "label": "CI / CD:",
+      "description": "Develop pipelines that automate delivery to ensure new implementations follow all best practices of the company and can go into production without errors or conflicts.",
+      "bulletPoints": "GitHub Actions,GitLab,Jenkins"
+    }
+  },
+  "works": {
+    "title": "My Projects",
+    "view": "View",
+    "project-0": {
+      "name": "Vacancy Finder",
+      "src": "Vacancy-Finder",
+      "type": "Fullstack",
+      "age": "2025",
+      "img": "/imgs/vacancy-finder.png",
+      "href": "https://github.com/Thalisu/vacancy-finder",
+      "desc": "Looking for multiple job vacancies with different searches? In this app, you can search everything in one place and get all results on the same page, ordered from the most recent to the oldest job posting.",
+      "techs": "Next,Typescript,Python,FastAPI",
+      "feats": ""
+    },
+    "project-1": {
+      "name": "Movie Streaming App",
+      "src": "Movie-Streaming",
+      "type": "FrontEnd",
+      "age": "2024",
+      "img": "/imgs/movieStreaming/home.png",
+      "href": "https://movie-streaming-discovery.vercel.app/",
+      "desc": "A Full Stack project to watch movies with user authentication, where each user can manage their favorite movies and track the progress of what they were watching. It uses an SQL database to store user and movie information and consumes an external API to get the movie catalog. The frontend is optimized for beauty and performance, with interactive carousels highlighting popular and trending movies. The interface is intuitive, ensuring a smooth and engaging user experience.",
+      "techs": "React,Typescript,express",
+      "feats": "/imgs/movieStreaming/feats/player.gif,/imgs/movieStreaming/feats/cards.gif"
+    },
+    "project-2": {
+      "name": "Portfolio",
+      "src": "Portfolio",
+      "type": "FrontEnd",
+      "age": "2024",
+      "img": "/imgs/portfolio.png",
+      "href": "https://thalisondmc.vercel.app/",
+      "desc": "My Full Stack developer portfolio, built with Next.js and TypeScript, focused on performance and smoothness. The project uses GSAP animations, Lenis Scroll for smooth navigation, and Vivus to animate SVGs, resulting in an engaging visual experience. The code is carefully optimized to ensure animations and interactions do not compromise page performance. The design is modern, dynamically showcasing technical skills and projects in an impactful way.",
+      "techs": "Next,Typescript,GSAP",
+      "feats": ""
+    },
+    "project-3": {
+      "name": "Login API with SQL Database",
+      "src": "Login-Api",
+      "type": "BackEnd",
+      "age": "2024",
+      "img": "/imgs/SQL.png",
+      "href": "https://github.com/Thalisu/loginApi",
+      "desc": "A backend login API built with Express, using an SQL database and Prisma for efficient database communication. The project adopts the Dependency Injection pattern, promoting modularity and easy code maintenance. The API provides robust authentication and user management functionalities, ensuring security and performance. Prisma simplifies CRUD operations with the database, while the modular code design ensures scalability and flexibility for future implementations.",
+      "techs": "Typescript,Prisma,SQL,Typescript,Express",
+      "feats": ""
+    },
+    "project-4": {
+      "name": "Patients API with MongoDB",
+      "src": "Patients-Api",
+      "type": "BackEnd",
+      "age": "2023",
+      "img": "/imgs/CRUD.png",
+      "href": "https://patientor-six.vercel.app/",
+      "desc": "A patient API developed with Express, using a NoSQL MongoDB database. Communication with the database is handled through Mongoose, facilitating CRUD operations. The API enables complete management of patient data, including creating, reading, updating, and deleting records. Designed to be scalable and flexible, the API ensures efficiency in handling large data volumes, leveraging the advantages of MongoDB's document structure.",
+      "techs": "Typescript,noSQL,Typescript,Express",
+      "feats": ""
+    }
+  },
+  "contact": {
+    "title": "Need to create something amazing?",
+    "button": "Contact me!"
+  },
+  "footer": {
+    "contact": "Contact",
+    "navigation": "Navigation",
+    "about": "About",
+    "projects": "Projects"
+  }
+}
