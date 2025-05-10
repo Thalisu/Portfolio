@@ -2,10 +2,12 @@
 import { useLayoutEffect, useState } from "react";
 import Modal from "./Modal";
 import { useIsMobile } from "../hooks/useIsMobile";
+import { useTranslations } from "next-intl";
 
 const MobileWarning = () => {
   const [isOpen, setIsOpen] = useState<boolean | null>(null);
   const isMobile = useIsMobile();
+  const t = useTranslations("mobileWarning");
 
   useLayoutEffect(() => {
     if (isOpen !== null) return;
@@ -20,9 +22,9 @@ const MobileWarning = () => {
     >
       <div className="flex flex-col">
         <h2 className="self-center text-xl font-bold text-primary opacity-90">
-          Warning
+          {t("title")}
         </h2>
-        <p>For a better experience, please use a desktop device</p>
+        <p>{t("description")}</p>
       </div>
     </Modal>
   );

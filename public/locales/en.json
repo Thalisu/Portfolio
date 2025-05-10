@@ -1,4 +1,8 @@
 {
+  "mobileWarning": {
+    "title": "Advice",
+    "description": "For a better experience, use a desktop device"
+  },
   "heroSection": {
     "hi": "hi!",
     "iAm": "I am",
