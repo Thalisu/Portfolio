@@ -18,7 +18,7 @@ export default forwardRef(function Banners(
             .replaceAll("-", " ")
         : props.path.replace("/", "");
   return (
-    <div ref={ref}>
+    <div ref={ref} className="z-[9999999999999]">
       <div
         id="banner-1"
         className="fixed left-0 top-0 z-50 min-h-svh w-[33svw] bg-neutral-950"

@@ -9,3 +9,4 @@ export { default as CursorSVG } from "@/app/components/svgs/cursor.svg";
 export { default as DiagonalArrow } from "@/app/components/svgs/diagonalArrow.svg";
 export { default as Copy } from "@/app/components/svgs/copy.svg";
 export { default as Done } from "@/app/components/svgs/done.svg";
+export { default as CloseX } from "@/app/components/svgs/close-x.svg";

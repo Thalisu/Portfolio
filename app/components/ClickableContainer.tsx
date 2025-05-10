@@ -8,26 +8,32 @@ import { getCenter, isMobile } from "../lib/utils";
 import CustomLink from "./CustomLink";
 import { Link } from "@/i18n/routing";
 
+interface IProps {
+  children: React.ReactNode;
+  className: string;
+  href: string;
+  button?: boolean;
+  scale?: number;
+  center?: boolean;
+  animate?: boolean;
+  text?: string;
+  link?: boolean;
+  onClick?: () => void;
+  target?: string;
+}
+
 export default function ClickableContainer({
   children,
   href,
   className,
   scale = 2,
   center = true,
+  onClick,
   animate = true,
+  button = false,
   link = false,
   target = "_blank",
-}: {
-  children: React.ReactNode;
-  href: string;
-  className: string;
-  scale?: number;
-  center?: boolean;
-  animate?: boolean;
-  text?: string;
-  link?: boolean;
-  target?: string;
-}) {
+}: IProps) {
   const { cursor, setIsHovering } = useContext(cursorContext) as CursorContext;
   const ref = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
   const handlers = useRef({
@@ -81,6 +87,13 @@ export default function ClickableContainer({
       container.removeEventListener("click", onMouseLeave);
     };
   }, [cursor]);
+
+  if (button)
+    return (
+      <button className={className} ref={ref} onClick={onClick}>
+        {children}
+      </button>
+    );
 
   return link ? (
     <CustomLink href={href} ref={ref} className={className}>

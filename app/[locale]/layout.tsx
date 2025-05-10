@@ -7,6 +7,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
+import MobileWarning from "../components/MobileWarning";
 
 export const metadata: Metadata = {
   title: "Thalison de melo - bem vindo",
@@ -43,6 +44,7 @@ export default async function RootLayout({
             <CursorProvider>
               <NextIntlClientProvider messages={messages}>
                 {children}
+                <MobileWarning />
               </NextIntlClientProvider>
             </CursorProvider>
           </SmoothScroll>
