@@ -9,7 +9,6 @@ export default function CallMe() {
   const { ref, animations } = useCallMeAnimations();
   const t = useTranslations("contact");
   const isMobile = useIsMobile(640);
-  console.log(isMobile);
 
   const handleMouseEnter = () => {
     if (!animations) return;

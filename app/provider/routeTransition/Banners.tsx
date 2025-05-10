@@ -5,7 +5,6 @@ export default forwardRef(function Banners(
   props: { path: string },
   ref: ForwardedRef<HTMLDivElement>,
 ) {
-  console.log(props.path);
   const text =
     props.path === "/en" || props.path === "/pt-BR"
       ? "home"
