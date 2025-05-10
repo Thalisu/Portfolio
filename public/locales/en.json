@@ -32,7 +32,20 @@
   "works": {
     "title": "My Projects",
     "view": "View",
+    "techs": "Technologies",
+    "age": "At",
     "project-0": {
+      "name": "Flaterz",
+      "src": "flaterz",
+      "type": "Fullstack",
+      "age": "2025",
+      "img": "/imgs/flaterz.png",
+      "href": "https://flaterz.com",
+      "desc": "Looking to move but on a tight budget? No worries! At Flaterz, we offer shared housing options to save money, make new friends, and enjoy the comfort of a fully-equipped home.",
+      "techs": "React, Vite, Typescript",
+      "feats": ""
+    },
+    "project-1": {
       "name": "Vacancy Finder",
       "src": "Vacancy-Finder",
       "type": "Fullstack",
@@ -43,7 +56,7 @@
       "techs": "Next,Typescript,Python,FastAPI",
       "feats": ""
     },
-    "project-1": {
+    "project-2": {
       "name": "Movie Streaming App",
       "src": "Movie-Streaming",
       "type": "FrontEnd",
@@ -54,7 +67,7 @@
       "techs": "React,Typescript,express",
       "feats": "/imgs/movieStreaming/feats/player.gif,/imgs/movieStreaming/feats/cards.gif"
     },
-    "project-2": {
+    "project-3": {
       "name": "Portfolio",
       "src": "Portfolio",
       "type": "FrontEnd",
@@ -65,7 +78,7 @@
       "techs": "Next,Typescript,GSAP",
       "feats": ""
     },
-    "project-3": {
+    "project-4": {
       "name": "Login API with SQL Database",
       "src": "Login-Api",
       "type": "BackEnd",
@@ -76,7 +89,7 @@
       "techs": "Typescript,Prisma,SQL,Typescript,Express",
       "feats": ""
     },
-    "project-4": {
+    "project-5": {
       "name": "Patients API with MongoDB",
       "src": "Patients-Api",
       "type": "BackEnd",

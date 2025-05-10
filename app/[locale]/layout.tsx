@@ -32,10 +32,10 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`min-h-screen w-svw bg-primary text-[#aeae9d] before:pointer-events-none before:fixed before:z-[1000000] before:h-full before:w-full before:opacity-20 before:[filter:url(#noiseFilter)]`}
+        className={`flex min-h-screen w-svw flex-col bg-primary text-[#aeae9d] before:pointer-events-none before:fixed before:z-[1000000] before:h-full before:w-full before:opacity-20 before:[filter:url(#noiseFilter)]`}
       >
         <div
-          className="h-full w-full cursor-none flex-col items-center overflow-clip"
+          className="flex h-full w-full flex-grow cursor-none flex-col items-center overflow-clip"
           id="content-wrapper"
         >
           <SmoothScroll>

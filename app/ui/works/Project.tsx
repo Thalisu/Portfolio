@@ -8,7 +8,7 @@ export default function Projects(props: Project) {
   return (
     <div className="flex w-full flex-col items-center px-2">
       <h1
-        className={`${poppins.className} translate-y-1 text-end text-5xl font-bold uppercase text-black/90`}
+        className={`${poppins.className} text-end text-5xl font-bold uppercase text-black/90`}
       >
         {props.name}
       </h1>
