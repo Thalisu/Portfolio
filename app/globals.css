@@ -2,57 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (max-width: 768px) {
-  html {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 660px) {
-  html {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 560px) {
-  html {
-    font-size: 12px;
-  }
-  .bigTitle {
-    font-size: 68px;
-  }
-}
-
-@media (max-width: 440px), (max-height: 560px) {
-  html {
-    font-size: 10px;
-  }
-  .bigTitle {
-    font-size: 62px;
-  }
-}
-
-@media (max-width: 360px) {
-  html {
-    font-size: 8px;
-  }
-
-  .smallTitle {
-    font-size: 14px;
-  }
-
-  .midTitle {
-    font-size: 32px;
-  }
-
-  .button {
-    width: 14px;
-  }
-
-  .bigTitle {
-    font-size: 48px;
-  }
-}
 
 body {
   background-color: var(--background);

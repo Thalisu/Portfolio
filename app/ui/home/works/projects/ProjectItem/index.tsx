@@ -37,7 +37,7 @@ export default function ProjectItem({
       onMouseMove={(e) => handlers?.handleMouseMove(e)}
     >
       <ClickableContainer
-        className="relative flex h-full w-full cursor-none justify-between px-4 py-4"
+        className="relative flex h-full w-full cursor-none flex-col justify-between px-4 py-4 sm:flex-row"
         href={`/work/${project.src}`}
         scale={4}
         center={false}

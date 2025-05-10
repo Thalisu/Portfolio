@@ -8,7 +8,7 @@ export default function Header() {
   const t = useTranslations("works");
   return (
     <h2
-      className={`${poppins.className} clip text-5xl font-bold uppercase text-secondary`}
+      className={`${poppins.className} clip text-3xl font-bold uppercase text-secondary sm:text-5xl`}
       ref={header}
     >
       {t("title")}

@@ -17,20 +17,22 @@ export default function SkillSection(props: PropTypes) {
       style={style}
       ref={container}
     >
-      <h3 className={`${poppins.className} text-4xl font-bold`}>
+      <h3 className={`${poppins.className} text-3xl font-bold sm:text-4xl`}>
         {props.label}
       </h3>
-      <div className="flex justify-between">
-        <p className={`${inter.className} w-full max-w-md text-lg`}>
+      <div className="flex flex-col justify-between sm:flex-row">
+        <p
+          className={`${inter.className} w-full text-base sm:max-w-md sm:text-lg`}
+        >
           {props.description}
         </p>
-        <div className="flex h-[30svh] max-w-lg flex-grow flex-col">
+        <div className="mt-4 flex h-[30svh] max-w-lg flex-grow flex-col sm:mt-0">
           {props.bulletPoints.map((point, i) => {
             const border =
               props.bulletPoints.length === 3 && i === 1 && "border-y-[1px]";
             return (
               <h4
-                className={`${poppins.className} ${i !== 0 ? "py-4" : "pb-4"} text-2xl font-bold uppercase ${border} border-spacing`}
+                className={`${poppins.className} ${i !== 0 ? "py-2 sm:py-4" : "pb-2 sm:pb-4"} text-xl font-bold uppercase sm:text-2xl ${border} border-spacing`}
                 key={crypto.randomUUID()}
               >
                 {point}

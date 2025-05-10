@@ -6,11 +6,11 @@ import ClickableContainer from "@/app/components/ClickableContainer";
 export default function BottomText() {
   return (
     <div
-      className="clip relative mt-3 flex h-fit w-full items-center gap-3"
+      className="clip relative flex h-fit w-full items-center gap-3 sm:mt-3"
       id="bottomText"
     >
       <h2
-        className={`${poppins.className} midTitle mr-1 w-max text-5xl font-bold uppercase leading-[35px] text-primary`}
+        className={`${poppins.className} midTitle mr-1 w-max text-4xl font-bold uppercase text-primary sm:text-5xl sm:leading-[35px]`}
       >
         developer
       </h2>

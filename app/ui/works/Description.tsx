@@ -29,7 +29,11 @@ export default function Description({
           <p className={`${inter.className} text-sm font-semibold`}>{age}</p>
         </div>
       </div>
-      <p className={`${inter.className} max-w-lg font-semibold`}>{desc}</p>
+      <p
+        className={`${inter.className} max-w-lg text-sm font-semibold sm:text-base`}
+      >
+        {desc}
+      </p>
     </div>
   );
 }

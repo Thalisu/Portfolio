@@ -28,7 +28,7 @@ export default forwardRef(function Banners(
         className="fixed left-[33svw] top-0 z-50 flex min-h-svh w-[35svw] items-center justify-center bg-neutral-950"
       >
         <p
-          className={`${poppins.className} w-fit text-center text-5xl font-bold uppercase text-secondary`}
+          className={`${poppins.className} w-fit text-center text-4xl font-bold uppercase text-secondary sm:text-5xl`}
           id="text"
         >
           {text}

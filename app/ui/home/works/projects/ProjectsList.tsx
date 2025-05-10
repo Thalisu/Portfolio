@@ -24,7 +24,7 @@ export default function ProjectsList() {
   });
 
   return (
-    <ul className="h-96">
+    <ul className="min-h-96">
       {projectsObj.map((project, i) => (
         <ProjectItem
           index={i}

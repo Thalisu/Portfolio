@@ -14,7 +14,7 @@ export default function HeroSection() {
       className="relative flex h-svh w-full flex-col items-center justify-between"
       ref={ref}
     >
-      <div className="relative flex h-fit w-fit grow flex-col justify-center gap-12 opacity-0">
+      <div className="relative flex h-fit w-fit max-w-full grow flex-col justify-center gap-12 px-1 opacity-0">
         <TopText />
         <MiddleText />
         <BottomText />

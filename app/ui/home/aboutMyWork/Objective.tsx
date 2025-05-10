@@ -14,20 +14,26 @@ export default function Objective() {
       ref={container}
     >
       <h2
-        className={`${poppins.className} clip whitespace-nowrap text-5xl font-bold uppercase text-secondary`}
+        className={`${poppins.className} clip whitespace-nowrap text-3xl font-bold uppercase text-secondary sm:text-5xl`}
         id="h3"
       >
         {t("whatIDo")}
       </h2>
       <div className="relative flex justify-between">
-        <p className={`${inter.className} mr-4 max-w-xl grow text-lg`} id="p">
+        <p
+          className={`${inter.className} mr-4 max-w-xl grow text-base sm:text-lg`}
+          id="p"
+        >
           {t("myObjective1")}&nbsp;
           <span className="text-secondary underline">{t("myObjective2")}</span>
           &nbsp; {t("myObjective3")}&nbsp;
           <span className="text-secondary underline">{t("myObjective4")}</span>
           &nbsp;{t("myObjective5")}
         </p>
-        <Dev className="relative bottom-0 w-28 min-w-16" id="devSvg" />
+        <Dev
+          className="absolute bottom-0 right-0 w-14 opacity-80 sm:relative sm:w-28 sm:min-w-16 sm:opacity-100"
+          id="devSvg"
+        />
       </div>
     </div>
   );
