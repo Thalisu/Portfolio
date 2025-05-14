@@ -17,7 +17,7 @@ export default function Footer() {
           </h3>
           <Gmail />
           <ClickableContainer
-            href="https://www.linkedin.com/in/thalison-de-melo-correa-744958276/"
+            href="https://www.linkedin.com/in/thalisu/"
             className={`${poppins.className} relative w-fit cursor-none font-semibold text-secondary opacity-70`}
             scale={1.5}
           >
